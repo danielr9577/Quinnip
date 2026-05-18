@@ -1,9 +1,24 @@
 const express = require("express");
 const app = express();
+const crypto = require("crypto");
+const { Pool } = require("pg");
+const db = require("./baseDeDatos");
 
-const db = require("./baseDeDatos"); // 👈 usa tu nombre de archivo
+db.query(`
+CREATE TABLE IF NOT EXISTS marcadores (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT,
+    idPartido TEXT,
+    casa TEXT,
+    visita TEXT,
+    golesCasa INTEGER,
+    golesVisita INTEGER,
+    uid TEXT,
+    UNIQUE(uid, idPartido)
+);
 
 app.use(express.json());
+
 
 app.get("/", (req, res) => {
     res.send("Backend 🚀");
@@ -11,20 +26,20 @@ app.get("/", (req, res) => {
 
 
 // 🔥 POST: guardar marcador
-app.post("/marcadores", (req, res) => {
+app.post("/marcadores", async(req, res) => {
 try {
     const m = req.body;
 
-    const stmt = db.prepare(`
+    await db.query(`
         INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, uid)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         ON CONFLICT(uid, idPartido)
         DO UPDATE SET
             golesCasa=excluded.golesCasa,
             golesVisita=excluded.golesVisita
-    `);
+    `,
 
-    stmt.run(
+    [
         m.nombre,
         m.idPartido,
         m.casa,
@@ -32,7 +47,7 @@ try {
         m.golesCasa,
         m.golesVisita,
 	m.uid
-    );
+    ]);
 
         console.log("✅ Guardado en DB:", m);
         res.json({ ok: true });
@@ -44,10 +59,10 @@ try {
 
 
 // 📥 GET: obtener todos los marcadores
-app.get("/marcadores", (req, res) => {
+app.get("/marcadores", async(req, res) => {
     try {
-        const rows = db.prepare("SELECT * FROM marcadores").all();
-        res.json(rows);
+        const result = await db.query("SELECT * FROM marcadores");
+        res.json(result.rows);
 
     } catch (err) {
         console.log("❌ Error:", err);

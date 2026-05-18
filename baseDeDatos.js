@@ -1,21 +1,10 @@
-const bettersqlite3 = require("better-sqlite3");
+const { Pool } = require("pg");
 
-const db = new bettersqlite3("marcadores.db");
-
-console.log("🟢 Base de datos conectada");
-
-    db.prepare(`
-        CREATE TABLE IF NOT EXISTS marcadores (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre TEXT,
-            idPartido TEXT,
-            casa TEXT,
-            visita TEXT,
-            golesCasa INTEGER,
-            golesVisita INTEGER,
-	    uid TEXT,
-            UNIQUE(uid, idPartido)
-        )
-    `).run();
+const db = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 
 module.exports = db;
