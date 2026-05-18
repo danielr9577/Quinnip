@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS marcadores (
     golesVisita INTEGER,
     uid TEXT,
     UNIQUE(uid, idPartido)
-);
+)`);
 
 app.use(express.json());
 
