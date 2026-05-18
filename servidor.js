@@ -62,7 +62,18 @@ try {
 app.get("/marcadores", async(req, res) => {
     try {
         const result = await db.query("SELECT * FROM marcadores");
-        res.json(result.rows);
+        const mapped = result.rows.map(r => ({
+            id: r.id,
+            nombre: r.nombre,
+            casa: r.casa,
+            visita: r.visita,
+            golesCasa: r.golescasa,
+            golesVisita: r.golesvisita,
+            idPartido: r.idpartido,   // 🔥 FIX CLAVE
+            uid: r.uid
+        }));
+
+        res.json(mapped);
 
     } catch (err) {
         console.log("❌ Error:", err);
