@@ -1,4 +1,4 @@
-const bettersqlite3 = require("better-sqlite3").verbose();
+const bettersqlite3 = require("better-sqlite3");
 
 const db = new bettersqlite3("marcadores.db");
 
