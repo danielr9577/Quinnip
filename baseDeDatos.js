@@ -1,11 +1,10 @@
-const sqlite3 = require("sqlite3").verbose();
+const bettersqlite3 = require("better-sqlite3").verbose();
 
-const db = new sqlite3.Database("marcadores.db");
+const db = new bettersqlite3("marcadores.db");
 
-db.serialize(() => {
-    console.log("🟢 Base de datos conectada");
+console.log("🟢 Base de datos conectada");
 
-    db.run(`
+    db.prepare(`
         CREATE TABLE IF NOT EXISTS marcadores (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT,
@@ -17,7 +16,6 @@ db.serialize(() => {
 	    uid TEXT,
             UNIQUE(uid, idPartido)
         )
-    `);
-});
+    `).run();
 
 module.exports = db;
