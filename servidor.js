@@ -17,6 +17,18 @@ CREATE TABLE IF NOT EXISTS marcadores (
     UNIQUE(uid, idPartido)
 )`);
 
+db.query(`
+CREATE TABLE IF NOT EXISTS ligas (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    codigo TEXT UNIQUE NOT NULL
+);
+`);
+
+function generarCodigo() {
+    return crypto.randomBytes(3).toString("hex").toUpperCase();
+}
+
 app.use(express.json());
 
 
@@ -54,6 +66,48 @@ try {
 } catch (err) {
         console.log("❌ Error:", err);
         res.status(500).json({ error: "Error guardando" });
+    }
+});
+
+app.post("/ligas", async (req, res) => {
+    try {
+        const { nombre } = req.body;
+
+        if (!nombre) {
+            return res.status(400).json({ error: "Nombre requerido" });
+        }
+
+        let codigo;
+        let existe = true;
+
+        // 🔁 asegurar código único
+        while (existe) {
+            codigo = generarCodigo();
+
+            const check = await db.query(
+                "SELECT id FROM ligas WHERE codigo = $1",
+                [codigo]
+            );
+
+            existe = check.rows.length > 0;
+        }
+
+        await db.query(
+            "INSERT INTO ligas (nombre, codigo) VALUES ($1, $2)",
+            [nombre, codigo]
+        );
+
+        console.log("🏆 Liga creada:", nombre, codigo);
+
+        res.json({
+            ok: true,
+            nombre,
+            codigo
+        });
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error creando liga" });
     }
 });
 
