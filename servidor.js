@@ -100,7 +100,6 @@ app.post("/ligas", async (req, res) => {
         console.log("🏆 Liga creada:", nombre, codigo);
 
         res.json({
-            ok: true,
             nombre,
             codigo
         });
