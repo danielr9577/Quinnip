@@ -134,6 +134,15 @@ app.get("/marcadores", async(req, res) => {
     }
 });
 
+app.get("/ligas", async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM ligas");
+        res.json(result.rows);
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error leyendo ligas" });
+    }
+});
 
 const PORT = process.env.PORT || 3000;
 
