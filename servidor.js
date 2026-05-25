@@ -4,8 +4,6 @@ const crypto = require("crypto");
 const { Pool } = require("pg");
 const db = require("./baseDeDatos");
 
-db.query("DROP TABLE ligas");
-
 db.query(`
 CREATE TABLE IF NOT EXISTS marcadores (
     id SERIAL PRIMARY KEY,
