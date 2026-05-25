@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS marcadores (
 db.query(`
 CREATE TABLE IF NOT EXISTS ligas (
     id SERIAL PRIMARY KEY,
+administrador TEXT NOT NULL,
     nombre TEXT NOT NULL,
     codigo TEXT UNIQUE NOT NULL
 );
@@ -71,10 +72,10 @@ try {
 
 app.post("/ligas", async (req, res) => {
     try {
-        const { nombre } = req.body;
+        const { administrador, nombre } = req.body;
 
-        if (!nombre) {
-            return res.status(400).json({ error: "Nombre requerido" });
+        if (!nombre || !administrador) {
+            return res.status(400).json({ error: "Administrador y Nombre requeridos" });
         }
 
         let codigo;
@@ -93,13 +94,14 @@ app.post("/ligas", async (req, res) => {
         }
 
         await db.query(
-            "INSERT INTO ligas (nombre, codigo) VALUES ($1, $2)",
-            [nombre, codigo]
+            "INSERT INTO ligas (nombre, administrador, codigo) VALUES ($1, $2, $3)",
+            [nombre, administrador, codigo]
         );
 
-        console.log("🏆 Liga creada:", nombre, codigo);
+        console.log("🏆 Liga creada:", nombre, administrador,codigo);
 
         res.json({
+	administrador,
             nombre,
             codigo
         });
