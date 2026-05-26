@@ -203,6 +203,28 @@ app.get("/ligas", async (req, res) => {
     }
 });
 
+app.get("/ligas/:codigo", async (req, res) => {
+    try {
+        const { codigo } = req.params;
+
+        const result = await db.query(
+            "SELECT * FROM ligas WHERE codigo = $1",
+            [codigo]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: "Liga no existe" });
+        }
+
+        res.json(result.rows[0]);
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error leyendo liga" });
+    }
+});
+
+
 app.get("/ligas/:codigo/usuarios", async (req, res) => {
     try {
         const { codigo } = req.params;
