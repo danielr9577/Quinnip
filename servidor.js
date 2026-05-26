@@ -135,10 +135,10 @@ app.post("/ligas", async (req, res) => {
 
 app.post("/ligas/unirse", async (req, res) => {
     try {
-        const { codigo, uid, nombre } = req.body;
+        const { codigo, uid } = req.body;
 
         // ✅ Validación básica
-        if (!codigo || !uid || !nombre) {
+        if (!codigo || !uid ) {
             return res.status(400).json({ error: "Faltan datos" });
         }
 
