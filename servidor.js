@@ -26,6 +26,15 @@ administrador TEXT NOT NULL,
 );
 `);
 
+db.query(`
+CREATE TABLE IF NOT EXISTS usuariosLiga (
+    id SERIAL PRIMARY KEY,
+    codigo TEXT,
+    uid TEXT,
+	UNIQUE(codigo, uid)
+);
+`);
+
 function generarCodigo() {
     return crypto.randomBytes(3).toString("hex").toUpperCase();
 }
@@ -93,10 +102,20 @@ app.post("/ligas", async (req, res) => {
             existe = check.rows.length > 0;
         }
 
+	await db.query("BEGIN");
+
         await db.query(
             "INSERT INTO ligas (nombre, administrador, codigo) VALUES ($1, $2, $3)",
             [nombre, administrador, codigo]
         );
+
+	await db.query(
+            `INSERT INTO usuariosLiga (codigo, uid)
+             VALUES ($1, $2)`,
+            [codigo, administrador] // puedes cambiar nombre después
+        );
+
+	await db.query("COMMIT");
 
         console.log("🏆 Liga creada:", nombre, administrador,codigo);
 
@@ -107,11 +126,49 @@ app.post("/ligas", async (req, res) => {
         });
 
     } catch (err) {
-        console.log("❌ Error:", err);
+        await db.query("ROLLBACK");
+	console.log("❌ Error:", err);
         res.status(500).json({ error: "Error creando liga" });
     }
 });
 
+
+app.post("/ligas/unirse", async (req, res) => {
+    try {
+        const { codigo, uid, nombre } = req.body;
+
+        // ✅ Validación básica
+        if (!codigo || !uid || !nombre) {
+            return res.status(400).json({ error: "Faltan datos" });
+        }
+
+        // ✅ Verificar que la liga exista
+        const liga = await db.query(
+            "SELECT * FROM ligas WHERE codigo = $1",
+            [codigo]
+        );
+
+        if (liga.rows.length === 0) {
+            return res.status(404).json({ error: "Liga no existe" });
+        }
+
+        // ✅ Insertar usuario (evita duplicados)
+        await db.query(
+            `INSERT INTO usuariosLiga (codigo, uid)
+             VALUES ($1, $2)
+             ON CONFLICT (codigo, uid) DO NOTHING`,
+            [codigo, uid]
+        );
+
+        console.log("👤 Usuario unido:", uid, "→", codigo);
+
+        res.json({ ok: true });
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error uniendo usuario" });
+    }
+});
 
 // 📥 GET: obtener todos los marcadores
 app.get("/marcadores", async(req, res) => {
@@ -143,6 +200,23 @@ app.get("/ligas", async (req, res) => {
     } catch (err) {
         console.log("❌ Error:", err);
         res.status(500).json({ error: "Error leyendo ligas" });
+    }
+});
+
+app.get("/ligas/:codigo/usuarios", async (req, res) => {
+    try {
+        const { codigo } = req.params;
+
+        const result = await db.query(
+            `SELECT uid FROM usuariosLiga WHERE codigo = $1`,
+            [codigo]
+        );
+
+        res.json(result.rows);
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error obteniendo usuarios" });
     }
 });
 
