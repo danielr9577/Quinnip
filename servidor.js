@@ -242,6 +242,25 @@ app.get("/ligas/:codigo/usuarios", async (req, res) => {
     }
 });
 
+app.get("/usuarios/:uid/ligas", async (req, res) => {
+    try {
+        const { uid } = req.params;
+
+        const result = await db.query(`
+            SELECT l.codigo
+            FROM ligas l
+            JOIN usuariosLiga u ON l.codigo = u.codigo
+            WHERE u.uid = $1
+        `, [uid]);
+
+        res.json(result.rows);
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error obteniendo ligas del usuario" });
+    }
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
