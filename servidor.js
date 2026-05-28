@@ -18,6 +18,17 @@ CREATE TABLE IF NOT EXISTS marcadores (
 )`);
 
 db.query(`
+CREATE TABLE IF NOT EXISTS resultados (
+    id SERIAL PRIMARY KEY,
+    idPartido TEXT,
+    casa TEXT,
+    visita TEXT,
+    golesCasa INTEGER,
+    golesVisita INTEGER,
+    UNIQUE(idPartido)
+)`);
+
+db.query(`
 CREATE TABLE IF NOT EXISTS ligas (
     id SERIAL PRIMARY KEY,
 administrador TEXT NOT NULL,
@@ -35,6 +46,14 @@ CREATE TABLE IF NOT EXISTS usuariosLiga (
 );
 `);
 
+db.query(`
+CREATE TABLE IF NOT EXISTS usuarios (
+    uid TEXT PRIMARY KEY,
+    nombre TEXT,
+    puntos REAL DEFAULT 0
+);
+`);
+
 function generarCodigo() {
     return crypto.randomBytes(3).toString("hex").toUpperCase();
 }
@@ -48,36 +67,48 @@ app.get("/", (req, res) => {
 
 
 // 🔥 POST: guardar marcador
-app.post("/marcadores", async(req, res) => {
-try {
-    const m = req.body;
+app.post("/marcadores", async (req, res) => {
+    try {
+        const m = req.body;
 
-    await db.query(`
-        INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, uid)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
-        ON CONFLICT(uid, idPartido)
-        DO UPDATE SET
-            golesCasa=excluded.golesCasa,
-            golesVisita=excluded.golesVisita
-    `,
+        await db.query("BEGIN");
 
-    [
-        m.nombre,
-        m.idPartido,
-        m.casa,
-        m.visita,
-        m.golesCasa,
-        m.golesVisita,
-	m.uid
-    ]);
+        await db.query(`
+            INSERT INTO usuarios (uid, nombre)
+            VALUES ($1, $2)
+            ON CONFLICT (uid) 
+            DO UPDATE SET nombre = EXCLUDED.nombre
+        `, [m.uid, m.nombre]);
+
+        await db.query(`
+            INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, uid)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            ON CONFLICT(uid, idPartido)
+            DO UPDATE SET
+                golesCasa=excluded.golesCasa,
+                golesVisita=excluded.golesVisita
+        `, [
+            m.nombre,
+            m.idPartido,
+            m.casa,
+            m.visita,
+            m.golesCasa,
+            m.golesVisita,
+            m.uid
+        ]);
+
+        await db.query("COMMIT");
 
         console.log("✅ Guardado en DB:", m);
         res.json({ ok: true });
-} catch (err) {
+
+    } catch (err) {
+        await db.query("ROLLBACK"); // 🔥 clave
         console.log("❌ Error:", err);
         res.status(500).json({ error: "Error guardando" });
     }
 });
+
 
 app.post("/ligas", async (req, res) => {
     try {
@@ -193,6 +224,8 @@ app.get("/marcadores", async(req, res) => {
     }
 });
 
+
+
 app.get("/ligas", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM ligas");
@@ -258,6 +291,30 @@ app.get("/usuarios/:uid/ligas", async (req, res) => {
     } catch (err) {
         console.log("❌ Error:", err);
         res.status(500).json({ error: "Error obteniendo ligas del usuario" });
+    }
+});
+
+
+app.get("/ligas/:codigo/tabla", async (req, res) => {
+    try {
+        const { codigo } = req.params;
+
+        const result = await db.query(`
+            SELECT 
+                u.uid,
+                u.nombre,
+                u.puntos
+            FROM usuarios u
+            JOIN usuariosLiga ul ON u.uid = ul.uid
+            WHERE ul.codigo = $1
+            ORDER BY u.puntos DESC
+        `, [codigo]);
+
+        res.json(result.rows);
+
+    } catch (err) {
+        console.log("❌ Error leaderboard:", err);
+        res.status(500).json({ error: "Error obteniendo tabla" });
     }
 });
 
