@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS resultados (
 db.query(`
 CREATE TABLE IF NOT EXISTS ligas (
     id SERIAL PRIMARY KEY,
-administrador TEXT NOT NULL,
+administradorUid TEXT NOT NULL,
     nombre TEXT NOT NULL,
     codigo TEXT UNIQUE NOT NULL
 );
@@ -112,9 +112,9 @@ app.post("/marcadores", async (req, res) => {
 
 app.post("/ligas", async (req, res) => {
     try {
-        const { administrador, nombre } = req.body;
+        const { administradorUid, nombre, administradorNombre } = req.body;
 
-        if (!nombre || !administrador) {
+        if (!nombre || !administradorUid || !administradorNombre) {
             return res.status(400).json({ error: "Administrador y Nombre requeridos" });
         }
 
@@ -135,23 +135,31 @@ app.post("/ligas", async (req, res) => {
 
 	await db.query("BEGIN");
 
+	        await db.query(`
+            INSERT INTO usuarios (uid, nombre)
+            VALUES ($1, $2)
+            ON CONFLICT (uid) 
+            DO UPDATE SET nombre = EXCLUDED.nombre
+        `, [administradorUid, administradorNombre]);
+
         await db.query(
-            "INSERT INTO ligas (nombre, administrador, codigo) VALUES ($1, $2, $3)",
-            [nombre, administrador, codigo]
+            "INSERT INTO ligas (nombre, administradorUid, codigo) VALUES ($1, $2, $3)",
+            [nombre, administradorUid, codigo]
         );
 
 	await db.query(
             `INSERT INTO usuariosLiga (codigo, uid)
-             VALUES ($1, $2)`,
-            [codigo, administrador] // puedes cambiar nombre después
+             VALUES ($1, $2)
+             ON CONFLICT (codigo, uid) DO NOTHING`,
+            [codigo, administradorUid]
         );
 
 	await db.query("COMMIT");
 
-        console.log("🏆 Liga creada:", nombre, administrador,codigo);
+        console.log("🏆 Liga creada:", nombre, administradorUid, codigo);
 
         res.json({
-	administrador,
+	administradorUid,
             nombre,
             codigo
         });
@@ -166,12 +174,19 @@ app.post("/ligas", async (req, res) => {
 
 app.post("/ligas/unirse", async (req, res) => {
     try {
-        const { codigo, uid } = req.body;
+        const { codigo, uid, nombre} = req.body;
 
         // ✅ Validación básica
-        if (!codigo || !uid ) {
+        if (!codigo || !uid || !nombre) {
             return res.status(400).json({ error: "Faltan datos" });
         }
+
+	await db.query(`
+            INSERT INTO usuarios (uid, nombre)
+            VALUES ($1, $2)
+            ON CONFLICT (uid) 
+            DO UPDATE SET nombre = EXCLUDED.nombre
+        `, [uid, nombre]);
 
         // ✅ Verificar que la liga exista
         const liga = await db.query(
@@ -183,7 +198,6 @@ app.post("/ligas/unirse", async (req, res) => {
             return res.status(404).json({ error: "Liga no existe" });
         }
 
-        // ✅ Insertar usuario (evita duplicados)
         await db.query(
             `INSERT INTO usuariosLiga (codigo, uid)
              VALUES ($1, $2)
