@@ -215,6 +215,30 @@ app.post("/ligas/unirse", async (req, res) => {
     }
 });
 
+app.post("/usuarios/puntos", async (req, res) => {
+    try {
+        const { uid, puntos } = req.body;
+
+        if (!uid || puntos === undefined) {
+            return res.status(400).json({ error: "Faltan datos" });
+        }
+
+        await db.query(`
+            	INSERT INTO usuarios (uid, puntos)
+		VALUES ($1, $2)
+		ON CONFLICT (uid)
+		DO UPDATE SET puntos = EXCLUDED.puntos
+        `, [uid, puntos]);
+
+        res.json({ ok: true });
+
+    } catch (err) {
+        console.log("❌ Error actualizando puntos:", err);
+        res.status(500).json({ error: "Error actualizando puntos" });
+    }
+});
+
+
 // 📥 GET: obtener todos los marcadores
 app.get("/marcadores", async(req, res) => {
     try {
