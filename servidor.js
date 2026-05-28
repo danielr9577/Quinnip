@@ -54,6 +54,28 @@ CREATE TABLE IF NOT EXISTS usuarios (
 );
 `);
 
+db.query(`
+CREATE TABLE IF NOT EXISTS puntosPartido (
+    uid TEXT,
+    idPartido TEXT,
+    puntos REAL,
+    PRIMARY KEY (uid, idPartido)
+);
+`);
+
+const MOMIOS = {
+    "mexicoSudafrica": {
+        casa: 0.7,
+        empate: 0.1,
+        visita: 0.2
+    },
+    "coreaDelSurRepublicaCheca": {
+        casa: 0.4,
+        empate: 0.2,
+        visita: 0.4
+    }
+};
+
 function generarCodigo() {
     return crypto.randomBytes(3).toString("hex").toUpperCase();
 }
@@ -66,12 +88,12 @@ app.get("/", (req, res) => {
 });
 
 
-// 🔥 POST: guardar marcador
 app.post("/marcadores", async (req, res) => {
     try {
         const m = req.body;
 
         await db.query("BEGIN");
+
 
         await db.query(`
             INSERT INTO usuarios (uid, nombre)
@@ -97,6 +119,11 @@ app.post("/marcadores", async (req, res) => {
             m.uid
         ]);
 
+        if (m.uid === "ADMINISTRADOR") {
+    	await puntosPartido(m.idPartido);
+        await sumarPuntos();
+	}
+
         await db.query("COMMIT");
 
         console.log("✅ Guardado en DB:", m);
@@ -108,6 +135,75 @@ app.post("/marcadores", async (req, res) => {
         res.status(500).json({ error: "Error guardando" });
     }
 });
+
+function definirGanador(golesCasa, golesVisita) {
+    if (golesCasa == null || golesVisita == null) return null;
+
+    if (golesCasa > golesVisita) return "casa";
+    if (golesVisita > golesCasa) return "visita";
+    return "empate";
+}
+
+async function puntosPartido(idPartido) {
+
+    const { rows: marcadores } = await db.query(
+    "SELECT * FROM marcadores WHERE idPartido = $1",
+    [idPartido]
+);
+   
+
+    const resultado = marcadores.find(
+        m => m.uid === "ADMINISTRADOR" && m.idPartido === idPartido
+    );
+
+    if (!resultado) {
+        console.log("⚠️ No hay resultado para", idPartido);
+        return;
+    }
+
+    const predicciones = marcadores.filter(
+        m => m.uid !== "ADMINISTRADOR" && m.idpartido === idPartido
+    );
+
+    const ganadorReal = definirGanador(
+        resultado.golescasa,
+        resultado.golesvisita
+    );
+
+    const momio = MOMIOS[idPartido] || { casa: 0, empate: 0, visita: 0 };
+
+    for (const p of predicciones) {
+
+        const ganadorUser = definirGanador(
+            p.golescasa,
+            p.golesvisita
+        );
+
+        let puntos = 0;
+
+        if (ganadorReal === ganadorUser && ganadorReal !== null) {
+            puntos = momio?.[ganadorReal] ?? 0;
+        }
+
+        await db.query(`
+            INSERT INTO puntosPartido (uid, idPartido, puntos)
+            VALUES ($1, $2, $3)
+            ON CONFLICT (uid, idPartido)
+            DO UPDATE SET puntos = EXCLUDED.puntos
+        `, [p.uid, idPartido, puntos]);
+    }
+}
+
+async function sumarPuntos() {
+    await db.query(`
+        UPDATE usuarios
+SET puntos = COALESCE((
+    SELECT SUM(puntos)
+    FROM puntosPartido
+    WHERE puntosPartido.uid = usuarios.uid), 0);
+    `);
+}
+
 
 
 app.post("/ligas", async (req, res) => {
