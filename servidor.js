@@ -456,6 +456,22 @@ app.get("/ligas/:codigo/tabla", async (req, res) => {
     }
 });
 
+app.get("/partidos", (req, res) => {
+    try {
+        const partidos = Object.entries(MOMIOS).map(([id, momios]) => ({
+            id,
+            casa: momios.casa,
+            empate: momios.empate,
+            visita: momios.visita
+        }));
+
+        res.json(partidos);
+    } catch (err) {
+        console.log("❌ Error obteniendo partidos:", err);
+        res.status(500).json({ error: "Error obteniendo partidos" });
+    }
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
