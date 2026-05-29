@@ -89,20 +89,21 @@ app.get("/", (req, res) => {
 
 
 app.post("/marcadores", async (req, res) => {
+	 const client = await db.connect();
     try {
         const m = req.body;
 
-        await db.query("BEGIN");
+        await client.query("BEGIN");
 
 
-        await db.query(`
+        await client.query(`
             INSERT INTO usuarios (uid, nombre)
             VALUES ($1, $2)
             ON CONFLICT (uid) 
             DO UPDATE SET nombre = EXCLUDED.nombre
         `, [m.uid, m.nombre]);
 
-        await db.query(`
+        await client.query(`
             INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, uid)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             ON CONFLICT(uid, idPartido)
@@ -119,12 +120,14 @@ app.post("/marcadores", async (req, res) => {
             m.uid
         ]);
 
-        await db.query("COMMIT");
-
 	if (m.uid === "ADMINISTRADOR") {
     	await puntosPartido(m.idPartido);
         await sumarPuntos();
 	}
+
+        await client.query("COMMIT");
+
+	
 
         console.log("✅ Guardado en DB:", m);
         res.json({ ok: true });
