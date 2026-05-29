@@ -157,7 +157,7 @@ async function puntosPartido(client, idPartido) {
    
 
     const resultado = marcadores.find(
-        m => m.uid === "ADMINISTRADOR" && m.idPartido === idPartido
+        m => m.uid === "ADMINISTRADOR"
     );
 
     if (!resultado) {
@@ -166,7 +166,7 @@ async function puntosPartido(client, idPartido) {
     }
 
     const predicciones = marcadores.filter(
-        m => m.uid !== "ADMINISTRADOR" && m.idPartido === idPartido
+        m => m.uid !== "ADMINISTRADOR"
     );
 
     const ganadorReal = definirGanador(
