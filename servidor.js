@@ -119,12 +119,12 @@ app.post("/marcadores", async (req, res) => {
             m.uid
         ]);
 
-        if (m.uid === "ADMINISTRADOR") {
+        await db.query("COMMIT");
+
+	if (m.uid === "ADMINISTRADOR") {
     	await puntosPartido(m.idPartido);
         await sumarPuntos();
 	}
-
-        await db.query("COMMIT");
 
         console.log("✅ Guardado en DB:", m);
         res.json({ ok: true });
