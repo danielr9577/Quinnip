@@ -121,8 +121,8 @@ app.post("/marcadores", async (req, res) => {
         ]);
 
 	if (m.uid === "ADMINISTRADOR") {
-    	await puntosPartido(m.idPartido);
-        await sumarPuntos();
+    	await puntosPartido(client, m.idPartido);
+        await sumarPuntos(client);
 	}
 
         await client.query("COMMIT");
@@ -133,7 +133,8 @@ app.post("/marcadores", async (req, res) => {
         res.json({ ok: true });
 
     } catch (err) {
-        await db.query("ROLLBACK"); // 🔥 clave
+        await client.query("ROLLBACK"); // 🔥 clave
+	client.release();
         console.log("❌ Error:", err);
         res.status(500).json({ error: "Error guardando" });
     }
@@ -147,9 +148,9 @@ function definirGanador(golesCasa, golesVisita) {
     return "empate";
 }
 
-async function puntosPartido(idPartido) {
+async function puntosPartido(client, idPartido) {
 
-    const { rows: marcadores } = await db.query(
+    const { rows: marcadores } = await client.query(
     "SELECT * FROM marcadores WHERE idPartido = $1",
     [idPartido]
 );
@@ -165,7 +166,7 @@ async function puntosPartido(idPartido) {
     }
 
     const predicciones = marcadores.filter(
-        m => m.uid !== "ADMINISTRADOR" && m.idpartido === idPartido
+        m => m.uid !== "ADMINISTRADOR" && m.idPartido === idPartido
     );
 
     const ganadorReal = definirGanador(
@@ -188,7 +189,7 @@ async function puntosPartido(idPartido) {
             puntos = momio?.[ganadorReal] ?? 0;
         }
 
-        await db.query(`
+        await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
             VALUES ($1, $2, $3)
             ON CONFLICT (uid, idPartido)
@@ -197,8 +198,8 @@ async function puntosPartido(idPartido) {
     }
 }
 
-async function sumarPuntos() {
-    await db.query(`
+async function sumarPuntos(client) {
+    await client.query(`
         UPDATE usuarios
 SET puntos = COALESCE((
     SELECT SUM(puntos)
