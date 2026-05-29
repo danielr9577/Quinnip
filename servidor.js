@@ -65,14 +65,14 @@ CREATE TABLE IF NOT EXISTS puntosPartido (
 
 const MOMIOS = {
     "mexicoSudafrica": {
-        casa: 0.91,
-        empate: 0.17,
-        visita: 0.65
+        casa: 1,
+        empate: 10,
+        visita: 100
     },
     "coreaDelSurRepublicaCheca": {
-        casa: 0.52,
-        empate: 0.38,
-        visita: 0.4
+        casa: 1000,
+        empate: 10000,
+        visita: 100000
     }
 };
 
