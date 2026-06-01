@@ -4,27 +4,30 @@ const crypto = require("crypto");
 const { Pool } = require("pg");
 const db = require("./baseDeDatos");
 
-db.query(`
-CREATE TABLE IF NOT EXISTS marcadores (
-    id SERIAL PRIMARY KEY,
-    nombre TEXT,
-    idPartido TEXT,
-    casa TEXT,
-    visita TEXT,
-    golesCasa INTEGER,
-    golesVisita INTEGER,
-	apuestaResultado INTEGER,
-	apuestaExacto INTEGER,
-	apuestaMas INTEGER,
-	apuestaMenos INTEGER,
-	apuestaMasCasa INTEGER,
-	apuestaMenosCasa INTEGER,
-	apuestaMasVisita INTEGER,
-	apuestaMenosVisita INTEGER,
-	apuestaDiferencia INTEGER,
-    uid TEXT,
-    UNIQUE(uid, idPartido)
-)`);
+db.query("DROP TABLE IF EXISTS marcadores");
+
+    db.query(`
+        CREATE TABLE IF NOT EXISTS marcadores (
+            id SERIAL PRIMARY KEY,
+            nombre TEXT,
+            idPartido TEXT,
+            casa TEXT,
+            visita TEXT,
+            golesCasa INTEGER,
+            golesVisita INTEGER,
+            apuestaResultado INTEGER,
+            apuestaExacto INTEGER,
+            apuestaMas INTEGER,
+            apuestaMenos INTEGER,
+            apuestaMasCasa INTEGER,
+            apuestaMenosCasa INTEGER,
+            apuestaMasVisita INTEGER,
+            apuestaMenosVisita INTEGER,
+            apuestaDiferencia INTEGER,
+            uid TEXT,
+            UNIQUE(uid, idPartido)
+        )
+    `);
 
 db.query(`
 CREATE TABLE IF NOT EXISTS resultados (
