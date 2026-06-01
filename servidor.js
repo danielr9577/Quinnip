@@ -382,7 +382,16 @@ app.get("/marcadores", async(req, res) => {
             visita: r.visita,
             golesCasa: r.golescasa,
             golesVisita: r.golesvisita,
-            idPartido: r.idpartido,   // 🔥 FIX CLAVE
+	    apuestaResultado: r.apuestaresultado,
+            apuestaExacto: r.apuestaexacto,
+            apuestaMas: r.apuestamas,
+            apuestaMenos: r.apuestamenos,
+            apuestaMasCasa: r.apuestamascasa,
+            apuestaMenosCasa: r.apuestamenoscasa,
+	    apuestaMasVisita: r.apuestamasvisita,
+            apuestaMenosVisita: r.apuestamenosvisita,
+            apuestaDiferencia: r.apuestadiferencia,
+            idPartido: r.idpartido,
             uid: r.uid
         }));
 
