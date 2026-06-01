@@ -17,6 +17,11 @@ CREATE TABLE IF NOT EXISTS marcadores (
 	apuestaExacto INTEGER,
 	apuestaMas INTEGER,
 	apuestaMenos INTEGER,
+	apuestaMasCasa INTEGER,
+	apuestaMenosCasa INTEGER,
+	apuestaMasVisita INTEGER,
+	apuestaMenosVisita INTEGER,
+	apuestaDiferencia INTEGER,
     uid TEXT,
     UNIQUE(uid, idPartido)
 )`);
@@ -108,16 +113,21 @@ app.post("/marcadores", async (req, res) => {
         `, [m.uid, m.nombre]);
 
         await client.query(`
-            INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, apuestaResultado, apuestaExacto, apuestaMas, apuestaMenos, uid)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+            INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, apuestaResultado, apuestaExacto, apuestaMas, apuestaMenos, apuestaMasCasa, apuestaMenosCasa, apuestaMasVisita, apuestaMenosVisita, apuestaDiferencia, uid)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
             ON CONFLICT(uid, idPartido)
             DO UPDATE SET
                 golesCasa=excluded.golesCasa,
                 golesVisita=excluded.golesVisita,
-		apuestaResultado=excluede.apuestaResultado,
-		apuestaExacto=exclude.apuestaExacto,
-		apuestaMas=exclude.apuestaMas,
-		apuestaMenos=exclude.apuestaMenos
+		apuestaResultado=excluded.apuestaResultado,
+		apuestaExacto=excluded.apuestaExacto,
+		apuestaMas=excluded.apuestaMas,
+		apuestaMenos=excluded.apuestaMenos,
+		apuestaMasCasa=excluded.apuestaMasCasa,
+		apuestaMenosCasa=excluded.apuestaMenosCasa,
+		apuestaMasVisita=excluded.apuestaMasVisita,
+		apuestaMenosVisita=excluded.apuestaMenosVisita,
+		apuestaDiferencia=excluded.apuestaDiferencia
         `, [
             m.nombre,
             m.idPartido,
@@ -129,6 +139,11 @@ app.post("/marcadores", async (req, res) => {
 	    m.apuestaExacto,
 	    m.apuestaMas,
 	    m.apuestaMenos,
+	    m.apuestaMasCasa,
+	    m.apuestaMenosCasa,
+	    m.apuestaMasVisita,
+	    m.apuestaMenosVisita,
+	    m.apuestaDiferencia,
             m.uid
         ]);
 
@@ -138,6 +153,7 @@ app.post("/marcadores", async (req, res) => {
 	}
 
         await client.query("COMMIT");
+client.release();
 
 	
 
@@ -161,11 +177,10 @@ function definirGanador(golesCasa, golesVisita) {
 }
 
 async function puntosPartido(client, idPartido) {
-
-	if (!MOMIOS[idPartido]) {
-        console.log("⚠️ Partido ignorado (sin momios):", idPartido);
-        return;
-    }
+    
+if (!MOMIOS[idPartido]) {
+    console.log("⚠️ Partido sin momios:", idPartido);
+}
 
     const { rows: marcadores } = await client.query(
     "SELECT * FROM marcadores WHERE idPartido = $1",
@@ -203,7 +218,7 @@ async function puntosPartido(client, idPartido) {
         let puntos = 0;
 
         if (ganadorReal === ganadorUser && ganadorReal !== null) {
-            puntos = momio?.[ganadorReal]*apuestaResultado ?? 0;
+            puntos = (momio?.[ganadorReal] ?? 0) * (p.apuestaresultado ?? 0);
         }
 
         await client.query(`
