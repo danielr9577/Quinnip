@@ -13,6 +13,10 @@ CREATE TABLE IF NOT EXISTS marcadores (
     visita TEXT,
     golesCasa INTEGER,
     golesVisita INTEGER,
+	apuestaResultado INTEGER,
+	apuestaExacto INTEGER,
+	apuestaMas INTEGER,
+	apuestaMenos INTEGER,
     uid TEXT,
     UNIQUE(uid, idPartido)
 )`);
@@ -104,12 +108,16 @@ app.post("/marcadores", async (req, res) => {
         `, [m.uid, m.nombre]);
 
         await client.query(`
-            INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, uid)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            INSERT INTO marcadores (nombre, idPartido, casa, visita, golesCasa, golesVisita, apuestaResultado, apuestaExacto, apuestaMas, apuestaMenos, uid)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
             ON CONFLICT(uid, idPartido)
             DO UPDATE SET
                 golesCasa=excluded.golesCasa,
-                golesVisita=excluded.golesVisita
+                golesVisita=excluded.golesVisita,
+		apuestaResultado=excluede.apuestaResultado,
+		apuestaExacto=exclude.apuestaExacto,
+		apuestaMas=exclude.apuestaMas,
+		apuestaMenos=exclude.apuestaMenos
         `, [
             m.nombre,
             m.idPartido,
@@ -117,6 +125,10 @@ app.post("/marcadores", async (req, res) => {
             m.visita,
             m.golesCasa,
             m.golesVisita,
+	    m.apuestaResultado,
+	    m.apuestaExacto,
+	    m.apuestaMas,
+	    m.apuestaMenos,
             m.uid
         ]);
 
@@ -149,6 +161,11 @@ function definirGanador(golesCasa, golesVisita) {
 }
 
 async function puntosPartido(client, idPartido) {
+
+	if (!MOMIOS[idPartido]) {
+        console.log("⚠️ Partido ignorado (sin momios):", idPartido);
+        return;
+    }
 
     const { rows: marcadores } = await client.query(
     "SELECT * FROM marcadores WHERE idPartido = $1",
@@ -186,7 +203,7 @@ async function puntosPartido(client, idPartido) {
         let puntos = 0;
 
         if (ganadorReal === ganadorUser && ganadorReal !== null) {
-            puntos = momio?.[ganadorReal] ?? 0;
+            puntos = momio?.[ganadorReal]*apuestaResultado ?? 0;
         }
 
         await client.query(`
