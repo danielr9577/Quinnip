@@ -622,12 +622,7 @@ app.get("/partidos", (req, res) => {
 
 app.get("/momios", (req, res) => {
     try {
-        const partidos = Object.entries(MOMIOS).map(([id, data]) => ({
-            id,
-            ...data
-        }));
-
-        res.json(partidos);
+        res.json(MOMIOS);
     } catch (err) {
         console.log("❌ Error obteniendo momios:", err);
         res.status(500).json({ error: "Error obteniendo momios" });
