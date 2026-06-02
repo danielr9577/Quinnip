@@ -75,16 +75,123 @@ CREATE TABLE IF NOT EXISTS puntosPartido (
 `);
 
 const MOMIOS = {
-    "mexicoSudafrica": {
-        casa: 1,
-        empate: 10,
-        visita: 100
+   const MOMIOS = {
+  "mexicoSudafrica": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.14 },
+      { descripcion: "1.5", momio: 1.66 },
+      { descripcion: "2.5", momio: 3.25 },
+      { descripcion: "3.5", momio: 7 },
+      { descripcion: "4.5", momio: 17 },
+      { descripcion: "5.5", momio: 41 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 5.5 },
+      { descripcion: "1.5", momio: 2.1 },
+      { descripcion: "2.5", momio: 1.33 },
+      { descripcion: "3.5", momio: 1.1 },
+      { descripcion: "4.5", momio: 1.025 },
+      { descripcion: "5.5", momio: 1.004 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 2 },
+      { descripcion: "1.5", momio: 6.5 },
+      { descripcion: "2.5", momio: 23 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 1.72 },
+      { descripcion: "1.5", momio: 1.11 },
+      { descripcion: "2.5", momio: 1.012 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.071 },
+      { descripcion: "1.5", momio: 1.36 },
+      { descripcion: "3.5", momio: 4 },
+      { descripcion: "4.5", momio: 8 },
+      { descripcion: "5.5", momio: 17 },
+      { descripcion: "6.5", momio: 34 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "1.5", momio: 9 },
+      { descripcion: "2.5", momio: 3.2 },
+      { descripcion: "3.5", momio: 1.25 },
+      { descripcion: "4.5", momio: 1.083 },
+      { descripcion: "5.5", momio: 1.025 },
+      { descripcion: "6.5", momio: 1.005 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.44},
+      { descripcion: "empate", momio: 4.33},
+      { descripcion: "visita", momio: 7.5}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.48 },
+        { descripcion: "2", momio: 4.29 },
+        { descripcion: "3", momio: 7.16 },
+        { descripcion: "4", momio: 13.84 },
+        { descripcion: "5", momio: 30.93 },
+        { descripcion: "6", momio: 65.81 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 9.08 },
+        { descripcion: "2", momio: 25.44 },
+        { descripcion: "3", momio: 75.62 }
+      ]
     },
-    "coreaDelSurRepublicaCheca": {
-        casa: 1000,
-        empate: 10000,
-        visita: 100000
-    }
+
+    resultadoExacto: [
+      { descripcion: "1-0", momio: 5.5 },
+      { descripcion: "2-0", momio: 6 },
+      { descripcion: "3-0", momio: 9.5 },
+      { descripcion: "4-0", momio: 19 },
+      { descripcion: "5-0", momio: 41 },
+      { descripcion: "6-0", momio: 81 },
+      { descripcion: "7-0", momio: 201 },
+
+      { descripcion: "2-1", momio: 9.5 },
+      { descripcion: "3-1", momio: 15 },
+      { descripcion: "4-1", momio: 29 },
+      { descripcion: "5-1", momio: 51 },
+      { descripcion: "6-1", momio: 126 },
+      { descripcion: "7-1", momio: 351 },
+
+      { descripcion: "3-2", momio: 41 },
+      { descripcion: "4-2", momio: 51 },
+      { descripcion: "5-2", momio: 126 },
+      { descripcion: "6-2", momio: 301 },
+
+      { descripcion: "4-3", momio: 201 },
+      { descripcion: "5-3", momio: 451 },
+
+      { descripcion: "0-0", momio: 9 },
+      { descripcion: "1-1", momio: 9 },
+      { descripcion: "2-2", momio: 26 },
+      { descripcion: "3-3", momio: 101 },
+
+      { descripcion: "0-1", momio: 15 },
+      { descripcion: "0-2", momio: 41 },
+      { descripcion: "0-3", momio: 101 },
+      { descripcion: "0-4", momio: 501 },
+
+      { descripcion: "1-2", momio: 23 },
+      { descripcion: "1-3", momio: 67 },
+      { descripcion: "1-4", momio: 301 },
+
+      { descripcion: "2-3", momio: 67 },
+      { descripcion: "2-4", momio: 301 },
+
+      { descripcion: "3-4", momio: 451 }
+    ]
+  },
 };
 
 function generarCodigo() {
@@ -512,6 +619,20 @@ app.get("/partidos", (req, res) => {
     } catch (err) {
         console.log("❌ Error obteniendo partidos:", err);
         res.status(500).json({ error: "Error obteniendo partidos" });
+    }
+});
+
+app.get("/momios", (req, res) => {
+    try {
+        const partidos = Object.entries(MOMIOS).map(([id, data]) => ({
+            id,
+            ...data
+        }));
+
+        res.json(partidos);
+    } catch (err) {
+        console.log("❌ Error obteniendo momios:", err);
+        res.status(500).json({ error: "Error obteniendo momios" });
     }
 });
 
