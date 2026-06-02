@@ -144,7 +144,7 @@ const MOMIOS = {
         { descripcion: "1", momio: 9.08 },
         { descripcion: "2", momio: 25.44 },
         { descripcion: "3", momio: 75.62 }
-      ]
+      ],
 
     resultadoExacto: [
       { descripcion: "1-0", momio: 5.5 },
