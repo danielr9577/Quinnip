@@ -75,7 +75,6 @@ CREATE TABLE IF NOT EXISTS puntosPartido (
 `);
 
 const MOMIOS = {
-   const MOMIOS = {
   "mexicoSudafrica": {
 
     golesMasCasa: [
