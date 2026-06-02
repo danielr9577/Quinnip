@@ -190,7 +190,7 @@ const MOMIOS = {
 
       { descripcion: "3-4", momio: 451 }
     ]
-  },
+  }
 };
 
 function generarCodigo() {
