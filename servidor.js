@@ -339,7 +339,7 @@ if (!MOMIOS[idPartido]) {
 console.log("apostado:", `"${golesMasApostados.toString()}"`);
 console.log("encontrado:", encontrado);
 console.log("momio:", encontrado?.momio);
-console.log("apuesta:", p.apuestaMas);
+console.log(p);
 
 
 	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
