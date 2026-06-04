@@ -146,7 +146,7 @@ const MOMIOS = {
         { descripcion: "3", momio: 75.62 }
       ],
 
-    resultadoExacto: [
+    marcadorExacto: [
       { descripcion: "1-0", momio: 5.5 },
       { descripcion: "2-0", momio: 6 },
       { descripcion: "3-0", momio: 9.5 },
@@ -317,17 +317,63 @@ if (!MOMIOS[idPartido]) {
 
     for (const p of predicciones) {
 
-        const ganadorUser = definirGanador(
+        const ganadorUsuario = definirGanador(
             p.golescasa,
             p.golesvisita
         );
 
         let puntos = 0;
+	const golesMasApostados = Number((p.golescasa + p.golesvisita - 0.5).toFixed(1));
+	const golesMenosApostados = Number((p.golescasa + p.golesvisita + 0.5).toFixed(1));
+	const golesMasCasaApostados = Number((p.golescasa - 0.5).toFixed(1));
+	const golesMenosCasaApostados = Number((p.golescasa + 0.5).toFixed(1));
+	const golesMasVisitaApostados = Number((p.golesvisita - 0.5).toFixed(1));
+	const golesMenosVisitaApostados = Number((p.golesvisita + 0.5).toFixed(1));
+	const diferenciaApostada = Math.abs(p.golescasa - p.golesvisita);
+	const diferenciaReal = Math.abs(resultado.golescasa - resultado.golesvisita);
+	const marcadorExactoUsuario = `${p.golescasa}-${p.golesvisita}`;
+	const marcadorExactoReal = `${resultado.golescasa}-${resultado.golesvisita}`;
+	
+	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
+	    puntos += (momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMas ?? 0);
+	}
 
-        if (ganadorReal === ganadorUser && ganadorReal !== null) {
-            puntos = (momio?.[ganadorReal] ?? 0) * (p.apuestaresultado ?? 0);
+	if ((resultado.golescasa + resultado.golesvisita) < (golesMenosApostados)){
+	    puntos += (momio?.golesMenosTotales?.find(r => r.descripcion === golesMenosApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenos ?? 0);
+	}
+
+
+	if (resultado.golescasa > golesMasCasaApostados){
+	    puntos += (momio?.golesMasCasa?.find(r => r.descripcion === golesMasCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMasCasa ?? 0);
+	}
+
+	if (resultado.golesvisita > golesMasVisitaApostados){
+	    puntos += (momio?.golesMasVisita?.find(r => r.descripcion === golesMasVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMasVisita ?? 0);
+	}
+
+	if (resultado.golescasa < golesMenosCasaApostados){
+	    puntos += (momio?.golesMenosCasa?.find(r => r.descripcion === golesMenosCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenosCasa ?? 0);
+	}
+
+	if (resultado.golesvisita < golesMenosVisitaApostados){
+	    puntos += (momio?.golesMenosVisita?.find(r => r.descripcion === golesMenosVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenosVisita ?? 0);
+	}
+
+        if (ganadorReal === ganadorUsuario && ganadorReal !== null) {
+            puntos += (momio?.resultado?.find(r => r.descripcion === ganadorReal)?.momio ?? 0) * (p.apuestaresultado ?? 0);
         }
 
+	if (ganadorReal === ganadorUsuario && ganadorReal !== null && diferenciaReal === diferenciaApostada && diferenciaReal != 0) {
+            if(ganadorReal === "casa"){
+		puntos += (momio?.diferenciaCasa?.find(r => r.descripcion === diferenciaReal)?.momio ?? 0) * (p.apuestadiferencia ?? 		0);}
+	    if(ganadorReal === "visita"){
+		puntos += (momio?.diferenciaVisita?.find(r => r.descripcion === diferenciaReal)?.momio ?? 0) * 				        (p.apuestadiferencia ?? 0);}
+        }
+	
+	if (marcadorExactoUsuario === marcadorExactoReal) {
+            puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaExacto ?? 0);
+        }
+	
         await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
             VALUES ($1, $2, $3)
