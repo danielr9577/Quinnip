@@ -411,10 +411,12 @@ if (!MOMIOS[idPartido]) {
             puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaexacto ?? 0);
         }
 	else {puntos -= (p.apuestaexacto ?? 0)}
-	console.log(ganadorReal);
-	console.log(puntos);
-	if(ganadorReal == null){puntos = -100}
-	console.log(puntos);
+
+	console.log(
+  new Date().toLocaleString("es-CR", {
+    timeZone: "America/Costa_Rica"
+  })
+);
         await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
             VALUES ($1, $2, $3)
