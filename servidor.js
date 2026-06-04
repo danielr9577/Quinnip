@@ -334,12 +334,7 @@ if (!MOMIOS[idPartido]) {
 	const marcadorExactoUsuario = `${p.golescasa}-${p.golesvisita}`;
 	const marcadorExactoReal = `${resultado.golescasa}-${resultado.golesvisita}`;
 	
-	const encontrado = momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString());
-
-console.log("apostado:", `"${golesMasApostados.toString()}"`);
-console.log("encontrado:", encontrado);
-console.log("momio:", encontrado?.momio);
-console.log(p.apuestamas);
+	
 
 
 	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
@@ -371,11 +366,14 @@ console.log(p.apuestamas);
             puntos += (momio?.resultado?.find(r => r.descripcion === ganadorReal)?.momio ?? 0) * (p.apuestaresultado ?? 0);
         }
 
+	const encontrado = momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString());
+
+
 	if (ganadorReal === ganadorUsuario && ganadorReal !== null && diferenciaReal === diferenciaApostada && diferenciaReal != 0) {
             if(ganadorReal === "casa"){
-		puntos += (momio?.diferenciaCasa?.find(r => r.descripcion === diferenciaReal)?.momio ?? 0) * (p.apuestadiferencia ?? 		0);}
+		puntos += (momio?.diferenciaCasa?.find(r => r.descripcion === diferenciaReal.toString())?.momio ?? 0) * (p.apuestadiferencia ?? 		0);}
 	    if(ganadorReal === "visita"){
-		puntos += (momio?.diferenciaVisita?.find(r => r.descripcion === diferenciaReal)?.momio ?? 0) * 				        (p.apuestadiferencia ?? 0);}
+		puntos += (momio?.diferenciaVisita?.find(r => r.descripcion === diferenciaReal.toString())?.momio ?? 0) * 				        (p.apuestadiferencia ?? 0);}
         }
 	
 	if (marcadorExactoUsuario === marcadorExactoReal) {
