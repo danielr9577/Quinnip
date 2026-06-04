@@ -339,32 +339,32 @@ if (!MOMIOS[idPartido]) {
 console.log("apostado:", `"${golesMasApostados.toString()}"`);
 console.log("encontrado:", encontrado);
 console.log("momio:", encontrado?.momio);
-console.log(p);
+console.log(p.apuestamas);
 
 
 	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
-	    puntos += (momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMas ?? 0);
+	    puntos += (momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamas ?? 0);
 	}
 
 	if ((resultado.golescasa + resultado.golesvisita) < (golesMenosApostados)){
-	    puntos += (momio?.golesMenosTotales?.find(r => r.descripcion === golesMenosApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenos ?? 0);
+	    puntos += (momio?.golesMenosTotales?.find(r => r.descripcion === golesMenosApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenos ?? 0);
 	}
 
 
 	if (resultado.golescasa > golesMasCasaApostados){
-	    puntos += (momio?.golesMasCasa?.find(r => r.descripcion === golesMasCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMasCasa ?? 0);
+	    puntos += (momio?.golesMasCasa?.find(r => r.descripcion === golesMasCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamascasa ?? 0);
 	}
 
 	if (resultado.golesvisita > golesMasVisitaApostados){
-	    puntos += (momio?.golesMasVisita?.find(r => r.descripcion === golesMasVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMasVisita ?? 0);
+	    puntos += (momio?.golesMasVisita?.find(r => r.descripcion === golesMasVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamasvisita ?? 0);
 	}
 
 	if (resultado.golescasa < golesMenosCasaApostados){
-	    puntos += (momio?.golesMenosCasa?.find(r => r.descripcion === golesMenosCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenosCasa ?? 0);
+	    puntos += (momio?.golesMenosCasa?.find(r => r.descripcion === golesMenosCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenoscasa ?? 0);
 	}
 
 	if (resultado.golesvisita < golesMenosVisitaApostados){
-	    puntos += (momio?.golesMenosVisita?.find(r => r.descripcion === golesMenosVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMenosVisita ?? 0);
+	    puntos += (momio?.golesMenosVisita?.find(r => r.descripcion === golesMenosVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenosvisita ?? 0);
 	}
 
         if (ganadorReal === ganadorUsuario && ganadorReal !== null) {
@@ -379,7 +379,7 @@ console.log(p);
         }
 	
 	if (marcadorExactoUsuario === marcadorExactoReal) {
-            puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaExacto ?? 0);
+            puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaexacto ?? 0);
         }
 	
         await client.query(`
