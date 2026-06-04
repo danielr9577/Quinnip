@@ -343,38 +343,38 @@ if (!MOMIOS[idPartido]) {
 	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
 	    puntos += (momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamas ?? 0);
 	}
-	else {puntos -= p.apuestamas}
+	else {puntos -= (p.apuestamas ?? 0)}
 
 	if ((resultado.golescasa + resultado.golesvisita) < (golesMenosApostados)){
 	    puntos += (momio?.golesMenosTotales?.find(r => r.descripcion === golesMenosApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenos ?? 0);
 	}
-	else {puntos -= p.apuestamenos}
+	else {puntos -= (p.apuestamenos ?? 0)}
 
 
 	if (resultado.golescasa > golesMasCasaApostados){
 	    puntos += (momio?.golesMasCasa?.find(r => r.descripcion === golesMasCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamascasa ?? 0);
 	}
-	else {puntos -= p.apuestamascasa}
+	else {puntos -= (p.apuestamascasa ?? 0)}
 
 	if (resultado.golesvisita > golesMasVisitaApostados){
 	    puntos += (momio?.golesMasVisita?.find(r => r.descripcion === golesMasVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamasvisita ?? 0);
 	}
-	else {puntos -= p.apuestamasvisita}
+	else {puntos -= (p.apuestamasvisita ?? 0)}
 
 	if (resultado.golescasa < golesMenosCasaApostados){
 	    puntos += (momio?.golesMenosCasa?.find(r => r.descripcion === golesMenosCasaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenoscasa ?? 0);
 	}
-	else {puntos -= p.apuestamenoscasa}
+	else {puntos -= (p.apuestamenoscasa ?? 0)}
 
 	if (resultado.golesvisita < golesMenosVisitaApostados){
 	    puntos += (momio?.golesMenosVisita?.find(r => r.descripcion === golesMenosVisitaApostados.toString())?.momio ?? 0) * 	 	    (p.apuestamenosvisita ?? 0);
 	}
-	else {puntos -= p.apuestamenosvisita}
+	else {puntos -= (p.apuestamenosvisita ?? 0)}
 
         if (ganadorReal === ganadorUsuario && ganadorReal !== null) {
             puntos += (momio?.resultado?.find(r => r.descripcion === ganadorReal)?.momio ?? 0) * (p.apuestaresultado ?? 0);
         }
-	else {puntos -= p.apuestaresultado}
+	else {puntos -= (p.apuestaresultado ?? 0)}
 
 
 
@@ -384,15 +384,16 @@ if (!MOMIOS[idPartido]) {
 	    if(ganadorReal === "visita"){
 		puntos += (momio?.diferenciaVisita?.find(r => r.descripcion === diferenciaReal.toString())?.momio ?? 0) * 				        (p.apuestadiferencia ?? 0);}
         }
-	else {puntos -= p.apuestadiferencia}
+	else {puntos -= (p.apuestadiferencia ?? 0)}
 	
 	if (marcadorExactoUsuario === marcadorExactoReal) {
             puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaexacto ?? 0);
         }
-	else {puntos -= p.apuestaexacto}
-
+	else {puntos -= (p.apuestaexacto ?? 0)}
+	console.log(ganadorReal);
+	console.log(puntos);
 	if(ganadorReal == null){puntos = -100}
-	
+	console.log(puntos);
         await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
             VALUES ($1, $2, $3)
