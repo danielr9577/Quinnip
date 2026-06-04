@@ -194,6 +194,10 @@ const MOMIOS = {
   }
 };
 
+const HORAS_LIMITE = {
+  "mexicoSudafrica": new Date("2026-06-04T21:30:00Z")
+};
+
 function generarCodigo() {
     return crypto.randomBytes(3).toString("hex").toUpperCase();
 }
@@ -210,6 +214,15 @@ app.post("/marcadores", async (req, res) => {
 	 const client = await db.connect();
     try {
         const m = req.body;
+
+	const ahora = new Date();
+        const limite = HORAS_LIMITE[m.idPartido];
+
+        if (m.uid !== "ADMINISTRADOR" && limite && ahora > limite) {
+    console.log("⛔ Usuario bloqueado:", m.uid);
+    client.release();
+    return res.status(403).json({ error: "Apuestas cerradas" });
+}
 
         await client.query("BEGIN");
 
@@ -711,7 +724,22 @@ app.get("/partidos", (req, res) => {
 
 app.get("/momios", (req, res) => {
     try {
-        res.json(MOMIOS);
+        const ahora = new Date();
+
+        const respuesta = {};
+
+        for (const idPartido in MOMIOS) {
+            const limite = HORAS_LIMITE[idPartido];
+            const cerrado = limite && ahora > limite;
+
+            respuesta[idPartido] = {
+                ...MOMIOS[idPartido],
+                cerrado: cerrado
+            };
+        }
+
+        res.json(respuesta);
+
     } catch (err) {
         console.log("❌ Error obteniendo momios:", err);
         res.status(500).json({ error: "Error obteniendo momios" });
