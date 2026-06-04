@@ -301,10 +301,16 @@ if (!MOMIOS[idPartido]) {
         m => m.uid === "ADMINISTRADOR"
     );
 
-    if (!resultado) {
+        if (!resultado) {
         console.log("⚠️ No hay resultado para", idPartido);
         return;
     }
+
+     const { rows: usuarios } = await client.query(
+        "SELECT uid FROM usuarios"
+    );
+
+
 
     const predicciones = marcadores.filter(
         m => m.uid !== "ADMINISTRADOR"
@@ -315,9 +321,24 @@ if (!MOMIOS[idPartido]) {
         resultado.golesvisita
     );
 
-    const momio = MOMIOS[idPartido] || { casa: 0, empate: 0, visita: 0 };
+    const momio = MOMIOS[idPartido] || {};
 
-    for (const p of predicciones) {
+    for (const u of usuarios) {
+
+	if (u.uid === "ADMINISTRADOR") continue;
+
+        const p = marcadores.find(m => m.uid === u.uid);
+
+        if (!p) {
+            await client.query(`
+                INSERT INTO puntosPartido (uid, idPartido, puntos)
+                VALUES ($1, $2, $3)
+                ON CONFLICT (uid, idPartido)
+                DO UPDATE SET puntos = EXCLUDED.puntos
+            `, [u.uid, idPartido, -100]);
+
+            continue;
+        }
 
         const ganadorUsuario = definirGanador(
             p.golescasa,
