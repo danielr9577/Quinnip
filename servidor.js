@@ -335,6 +335,7 @@ if (!MOMIOS[idPartido]) {
 	const diferenciaReal = Math.abs(resultado.golescasa - resultado.golesvisita);
 	const marcadorExactoUsuario = `${p.golescasa}-${p.golesvisita}`;
 	const marcadorExactoReal = `${resultado.golescasa}-${resultado.golesvisita}`;
+
 	
 	
 
@@ -389,6 +390,8 @@ if (!MOMIOS[idPartido]) {
             puntos += (momio?.marcadorExacto?.find(r => r.descripcion === marcadorExactoReal)?.momio ?? 0) * (p.apuestaexacto ?? 0);
         }
 	else {puntos -= p.apuestaexacto}
+
+	if(ganadorReal == null){puntos = -100}
 	
         await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
