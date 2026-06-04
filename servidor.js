@@ -335,7 +335,7 @@ if (!MOMIOS[idPartido]) {
 	const marcadorExactoReal = `${resultado.golescasa}-${resultado.golesvisita}`;
 	
 	console.log(`${golesMasApostados.toString()}`)
-	console.log(`$momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio}`)
+	console.log(`{$momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio}`)
 	console.log(`${p.apuestaMas}`)
 	if ((resultado.golescasa + resultado.golesvisita) > (golesMasApostados)){
 	    puntos += (momio?.golesMasTotales?.find(r => r.descripcion === golesMasApostados.toString())?.momio ?? 0) * 	 	    (p.apuestaMas ?? 0);
