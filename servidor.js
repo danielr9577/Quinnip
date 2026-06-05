@@ -192,10 +192,131 @@ const MOMIOS = {
       { descripcion: "3-4", momio: 451 }
     ]
   }
+"coreaDelSurRepublicaCheca": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.36 },
+      { descripcion: "1.5", momio: 2.62 },
+      { descripcion: "2.5", momio: 7 },
+      { descripcion: "3.5", momio: 19 },
+      { descripcion: "4.5", momio: 51 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 3 },
+      { descripcion: "1.5", momio: 1.44 },
+      { descripcion: "2.5", momio: 1.1 },
+      { descripcion: "3.5", momio: 1.02 },
+      { descripcion: "4.5", momio: 1.002 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.36 },
+      { descripcion: "1.5", momio: 2.75 },
+      { descripcion: "2.5", momio: 7 },
+      { descripcion: "3.5", momio: 21 },
+      { descripcion: "4.5", momio: 51 },
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 3 },
+      { descripcion: "1.5", momio: 1.4 },
+      { descripcion: "2.5", momio: 1.1 },
+      { descripcion: "3.5", momio: 1.015 },
+      { descripcion: "4.5", momio: 1.002 },
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.083 },
+      { descripcion: "1.5", momio: 1.4 },
+      { descripcion: "2.5", momio: 2.69 },
+      { descripcion: "3.5", momio: 4 },
+      { descripcion: "4.5", momio: 8 },
+      { descripcion: "5.5", momio: 19 },
+      { descripcion: "6.5", momio: 41 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 8 },
+      { descripcion: "1.5", momio: 3 },
+      { descripcion: "2.5", momio: 1.59 },
+      { descripcion: "3.5", momio: 1.25 },
+      { descripcion: "4.5", momio: 1.083 },
+      { descripcion: "5.5", momio: 1.02 },
+      { descripcion: "6.5", momio: 1.004 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 2.62},
+      { descripcion: "empate", momio: 3.1},
+      { descripcion: "visita", momio: 2.7}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.48 },
+        { descripcion: "2", momio: 4.29 },
+        { descripcion: "3", momio: 7.16 },
+        { descripcion: "4", momio: 13.84 },
+        { descripcion: "5", momio: 30.93 },
+        { descripcion: "6", momio: 65.81 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 9.08 },
+        { descripcion: "2", momio: 25.44 },
+        { descripcion: "3", momio: 75.62 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 8 },
+      { descripcion: "2-0", momio: 13 },
+      { descripcion: "3-0", momio: 29 },
+      { descripcion: "4-0", momio: 51 },
+      { descripcion: "5-0", momio: 151 },
+
+      { descripcion: "2-1", momio: 11 },
+      { descripcion: "3-1", momio: 23 },
+      { descripcion: "4-1", momio: 51 },
+      { descripcion: "5-1", momio: 151 },
+      { descripcion: "6-1", momio: 501 },
+
+      { descripcion: "3-2", momio: 41 },
+      { descripcion: "4-2", momio: 67 },
+      { descripcion: "5-2", momio: 201 },
+
+      { descripcion: "4-3", momio: 151 },
+      { descripcion: "5-3", momio: 501 },
+
+      { descripcion: "0-0", momio: 8 },
+      { descripcion: "1-1", momio: 6.5 },
+      { descripcion: "2-2", momio: 17 },
+      { descripcion: "3-3", momio: 51 },
+      { descripcion: "4-4", momio: 351 },
+
+      { descripcion: "0-1", momio: 8.5 },
+      { descripcion: "0-2", momio: 13 },
+      { descripcion: "0-3", momio: 29 },
+      { descripcion: "0-4", momio: 67 },
+      { descripcion: "0-5", momio: 151 },
+
+      { descripcion: "1-2", momio: 11 },
+      { descripcion: "1-3", momio: 26 },
+      { descripcion: "1-4", momio: 51 },
+      { descripcion: "1-5", momio: 151 },
+
+      { descripcion: "2-3", momio: 41 },
+      { descripcion: "2-4", momio: 81 },
+      { descripcion: "2-5", momio: 251 },
+
+      { descripcion: "3-4", momio: 151 },
+      { descripcion: "3-5", momio: 501 },
+    ]
+  }
 };
 
 const HORAS_LIMITE = {
-  "mexicoSudafrica": new Date("2026-06-04T21:30:00Z")
+  "mexicoSudafrica": new Date("2026-06-11T16:50:00Z"),
+  "coreaDelSurRepublicaCheca": new Date("2026-06-12T01:50:00Z")
 };
 
 function generarCodigo() {
