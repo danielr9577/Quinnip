@@ -253,18 +253,17 @@ const MOMIOS = {
     ],
 
     diferenciaCasa:[
-        { descripcion: "1", momio: 3.48 },
-        { descripcion: "2", momio: 4.29 },
-        { descripcion: "3", momio: 7.16 },
-        { descripcion: "4", momio: 13.84 },
-        { descripcion: "5", momio: 30.93 },
-        { descripcion: "6", momio: 65.81 }
+        { descripcion: "1", momio: 4.63 },
+        { descripcion: "2", momio: 8.3 },
+        { descripcion: "3", momio: 18.49 },
+        { descripcion: "4", momio: 38.12 }
       ],
 
     diferenciaVisita: [
-        { descripcion: "1", momio: 9.08 },
-        { descripcion: "2", momio: 25.44 },
-        { descripcion: "3", momio: 75.62 }
+        { descripcion: "1", momio: 4.79 },
+        { descripcion: "2", momio: 8.67 },
+        { descripcion: "3", momio: 18.49 },
+	{ descripcion: "4", momio: 46.41 }
       ],
 
     marcadorExacto: [
