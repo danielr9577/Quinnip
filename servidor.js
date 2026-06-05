@@ -617,6 +617,27 @@ app.get("/marcadores", async (req, res) => {
 });
 
 
+app.get("/usuarios/:uid", async (req, res) => {
+    try {
+        const { uid } = req.params;
+
+        const result = await db.query(
+            "SELECT uid, nombre, puntos FROM usuarios WHERE uid = $1",
+            [uid]
+        );
+
+        if (result.rows.length === 0) {
+            return res.json({ uid, nombre: "", puntos: 0 });
+        }
+
+        res.json(result.rows[0]);
+
+    } catch (err) {
+        console.log("❌ Error:", err);
+        res.status(500).json({ error: "Error obteniendo usuario" });
+    }
+});
+
 
 app.get("/ligas", async (req, res) => {
     try {
