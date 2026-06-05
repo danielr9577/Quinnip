@@ -425,11 +425,7 @@ if (!MOMIOS[idPartido]) {
         }
 	else {puntos -= (p.apuestaexacto ?? 0)}
 
-	console.log(
-  new Date().toLocaleString("es-CR", {
-    timeZone: "America/Costa_Rica"
-  })
-);
+	
         await client.query(`
             INSERT INTO puntosPartido (uid, idPartido, puntos)
             VALUES ($1, $2, $3)
@@ -580,10 +576,17 @@ app.post("/usuarios/puntos", async (req, res) => {
 });
 
 
-// 📥 GET: obtener todos los marcadores
-app.get("/marcadores", async(req, res) => {
+app.get("/marcadores", async (req, res) => {
     try {
-        const result = await db.query("SELECT * FROM marcadores");
+        const result = await db.query(`
+            SELECT 
+                m.*,
+                COALESCE(p.puntos, 0) AS puntos
+            FROM marcadores m
+            LEFT JOIN puntosPartido p
+            ON m.uid = p.uid AND m.idPartido = p.idPartido
+        `);
+
         const mapped = result.rows.map(r => ({
             id: r.id,
             nombre: r.nombre,
@@ -591,17 +594,18 @@ app.get("/marcadores", async(req, res) => {
             visita: r.visita,
             golesCasa: r.golescasa,
             golesVisita: r.golesvisita,
-	    apuestaResultado: r.apuestaresultado,
+            apuestaResultado: r.apuestaresultado,
             apuestaExacto: r.apuestaexacto,
             apuestaMas: r.apuestamas,
             apuestaMenos: r.apuestamenos,
             apuestaMasCasa: r.apuestamascasa,
             apuestaMenosCasa: r.apuestamenoscasa,
-	    apuestaMasVisita: r.apuestamasvisita,
+            apuestaMasVisita: r.apuestamasvisita,
             apuestaMenosVisita: r.apuestamenosvisita,
             apuestaDiferencia: r.apuestadiferencia,
             idPartido: r.idpartido,
-            uid: r.uid
+            uid: r.uid,
+            puntos: Number(r.puntos)
         }));
 
         res.json(mapped);
