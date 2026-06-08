@@ -4,6 +4,10 @@ const crypto = require("crypto");
 const { Pool } = require("pg");
 const db = require("./baseDeDatos");
 
+(async () => {
+  await db.query(`UPDATE marcadores SET idPartido = LOWER(idPartido)`);
+  console.log("✅ idPartido normalizados");
+})();
 
     db.query(`
         CREATE TABLE IF NOT EXISTS marcadores (
@@ -1117,7 +1121,7 @@ app.get("/momios", (req, res) => {
 
             respuesta[idPartido] = {
                 ...MOMIOS[idPartido],
-                cerrado: false
+                cerrado: cerrado
             };
         }
 
