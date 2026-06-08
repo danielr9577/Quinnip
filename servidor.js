@@ -1117,7 +1117,7 @@ app.get("/momios", (req, res) => {
 
             respuesta[idPartido] = {
                 ...MOMIOS[idPartido],
-                cerrado: cerrado
+                cerrado: false
             };
         }
 
