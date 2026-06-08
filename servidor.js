@@ -310,7 +310,7 @@ const MOMIOS = {
       { descripcion: "3-4", momio: 151 },
       { descripcion: "3-5", momio: 501 }
     ]
-  }
+  },
 "canadabosniayherzegovina": {
 
     golesMasCasa: [
@@ -427,7 +427,7 @@ const MOMIOS = {
 
       { descripcion: "3-4", momio: 251 },
     ]
-  }
+  },
 "estadosunidosparaguay": {
 
     golesMasCasa: [
