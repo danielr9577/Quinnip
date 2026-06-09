@@ -4,10 +4,6 @@ const crypto = require("crypto");
 const { Pool } = require("pg");
 const db = require("./baseDeDatos");
 
-(async () => {
-  await db.query(`UPDATE marcadores SET idPartido = LOWER(idPartido)`);
-  console.log("✅ idPartido normalizados");
-})();
 
     db.query(`
         CREATE TABLE IF NOT EXISTS marcadores (
@@ -896,7 +892,7 @@ const MOMIOS = {
       { descripcion: "0-1", momio: 7 },
       { descripcion: "0-2", momio: 7 },
       { descripcion: "0-3", momio: 11 },
-      { descripcion: "0-4", momio: 21 },}
+      { descripcion: "0-4", momio: 21 },
       { descripcion: "0-5", momio: 41 },
       { descripcion: "0-6", momio: 81 },
       { descripcion: "0-7", momio: 251 },
@@ -1016,7 +1012,7 @@ const MOMIOS = {
       { descripcion: "0-1", momio: 7 },
       { descripcion: "0-2", momio: 8 },
       { descripcion: "0-3", momio: 13 },
-      { descripcion: "0-4", momio: 29 },}
+      { descripcion: "0-4", momio: 29 },
       { descripcion: "0-5", momio: 51 },
       { descripcion: "0-6", momio: 151 },
       { descripcion: "0-7", momio: 451 },
