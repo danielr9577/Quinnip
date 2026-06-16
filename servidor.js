@@ -2486,7 +2486,131 @@ const MOMIOS = {
       { descripcion: "2-3", momio: 67 },
       { descripcion: "2-4", momio: 251 },
 
-      { descripcion: "3-4", momio: 351 },
+      { descripcion: "3-4", momio: 351 }
+    ]
+  },
+"portugalrepublicademocraticadelcongo": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.071 },
+      { descripcion: "1.5", momio: 1.4 },
+      { descripcion: "2.5", momio: 2.25 },
+      { descripcion: "3.5", momio: 4.33 },
+      { descripcion: "4.5", momio: 10 },
+      { descripcion: "5.5", momio: 21 },
+      { descripcion: "6.5", momio: 51 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 9 },
+      { descripcion: "1.5", momio: 2.75 },
+      { descripcion: "2.5", momio: 1.57 },
+      { descripcion: "3.5", momio: 1.2 },
+      { descripcion: "4.5", momio: 1.062 },
+      { descripcion: "5.5", momio: 1.015 },
+      { descripcion: "6.5", momio: 1.002 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 2 },
+      { descripcion: "1.5", momio: 6.5 },
+      { descripcion: "2.5", momio: 23 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 1.72 },
+      { descripcion: "1.5", momio: 1.11 },
+      { descripcion: "2.5", momio: 1.012 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.04 },
+      { descripcion: "1.5", momio: 1.22 },
+      { descripcion: "2.5", momio: 1.56 },
+      { descripcion: "3.5", momio: 2.75 },
+      { descripcion: "4.5", momio: 5 },
+      { descripcion: "5.5", momio: 10 },
+      { descripcion: "6.5", momio: 21 },
+      { descripcion: "7.5", momio: 41 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 13 },
+      { descripcion: "1.5", momio: 4.33 },
+      { descripcion: "2.5", momio: 2.06 },
+      { descripcion: "3.5", momio: 1.44 },
+      { descripcion: "4.5", momio: 1.16 },
+      { descripcion: "5.5", momio: 1.062 },
+      { descripcion: "6.5", momio: 1.015 },
+      { descripcion: "7.5", momio: 1.004 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.28},
+      { descripcion: "empate", momio: 5.5},
+      { descripcion: "visita", momio: 11}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 4.12 },
+        { descripcion: "2", momio: 4.11 },
+        { descripcion: "3", momio: 5.79 },
+        { descripcion: "4", momio: 9.87 },
+        { descripcion: "5", momio: 18.5 },
+        { descripcion: "6", momio: 38 },
+        { descripcion: "7", momio: 80.5 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 13.5 },
+        { descripcion: "2", momio: 31.5 },
+        { descripcion: "3", momio: 110 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 7 },
+      { descripcion: "2-0", momio: 6 },
+      { descripcion: "3-0", momio: 8 },
+      { descripcion: "4-0", momio: 13 },
+      { descripcion: "5-0", momio: 26 },
+      { descripcion: "6-0", momio: 51 },
+      { descripcion: "7-0", momio: 101 },
+      { descripcion: "8-0", momio: 251 },
+
+      { descripcion: "2-1", momio: 10 },
+      { descripcion: "3-1", momio: 13 },
+      { descripcion: "4-1", momio: 21 },
+      { descripcion: "5-1", momio: 41 },
+      { descripcion: "6-1", momio: 67 },
+      { descripcion: "7-1", momio: 151 },
+      { descripcion: "8-1", momio: 401 },
+
+      { descripcion: "3-2", momio: 34 },
+      { descripcion: "4-2", momio: 51 },
+      { descripcion: "5-2", momio: 81 },
+      { descripcion: "6-2", momio: 151 },
+      { descripcion: "7-2", momio: 401 },
+
+      { descripcion: "4-3", momio: 151 },
+      { descripcion: "5-3", momio: 251 },
+
+      { descripcion: "0-0", momio: 13 },
+      { descripcion: "1-1", momio: 11 },
+      { descripcion: "2-2", momio: 26 },
+      { descripcion: "3-3", momio: 81 },
+
+      { descripcion: "0-1", momio: 23 },
+      { descripcion: "0-2", momio: 51 },
+      { descripcion: "0-3", momio: 151 },
+
+      { descripcion: "1-2", momio: 34 },
+      { descripcion: "1-3", momio: 81 },
+      { descripcion: "1-4", momio: 401 },
+
+      { descripcion: "2-3", momio: 81 },
+      { descripcion: "2-4", momio: 351 },
+
+      { descripcion: "3-4", momio: 451 }
     ]
   }
 };
@@ -2511,7 +2635,8 @@ const HORAS_LIMITE = {
   "franciasenegal": new Date("2026-06-16T18:50:00Z"),
   "iraknoruega": new Date("2026-06-16T21:50:00Z"),
   "argentinaargelia": new Date("2026-06-17T00:50:00Z"),
-  "austriajordania": new Date("2026-06-17T03:50:00Z")
+  "austriajordania": new Date("2026-06-17T03:50:00Z"),
+  "portugalrepublicademocraticadelcongo": new Date("2026-06-17T16:50:00Z")
 };
 
 function generarCodigo() {
