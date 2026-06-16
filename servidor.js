@@ -2159,7 +2159,7 @@ const MOMIOS = {
 
     golesMasTotales: [
       { descripcion: "0.5", momio: 1.025 },
-      { descripcion: "1.5", momio: 1.16,
+      { descripcion: "1.5", momio: 1.16 },
       { descripcion: "2.5", momio: 1.47 },
       { descripcion: "3.5", momio: 2.5 },
       { descripcion: "4.5", momio: 4.33 },
