@@ -2265,8 +2265,8 @@ const HORAS_LIMITE = {
   "sueciatunez": new Date("2026-06-15T01:50:00Z"),
   "espanacaboverde": new Date("2026-06-15T15:50:00Z"),
   "belgicaegipto": new Date("2026-06-15T18:50:00Z"),
-  "arabiasauditauruguay": new Date("2026-06-15T21:50:00Z"),
-  "irannuevazelanda": new Date("2026-06-16T00:50:00Z"),
+  "arabiasauditauruguay": new Date("2026-06-16T21:50:00Z"),
+  "irannuevazelanda": new Date("2026-06-17T00:50:00Z"),
   "franciasenegal": new Date("2026-06-16T18:50:00Z"),
   "iraknoruega": new Date("2026-06-16T21:50:00Z")
 };
