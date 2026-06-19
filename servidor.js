@@ -3679,7 +3679,7 @@ const MOMIOS = {
       { descripcion: "2-5", momio: 151 },
       { descripcion: "2-6", momio: 451 },
 
-      { descripcion: "3-4", momio: 151 }
+      { descripcion: "3-4", momio: 151 },
       { descripcion: "3-5", momio: 451 }
     ]
   },
