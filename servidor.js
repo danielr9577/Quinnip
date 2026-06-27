@@ -8607,6 +8607,132 @@ const MOMIOS = {
 
       { descripcion: "4-5", momio: 501 }
     ]
+  },
+"jordaniaargentina": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 2.62 },
+      { descripcion: "1.5", momio: 11 },
+      { descripcion: "2.5", momio: 51 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 1.44 },
+      { descripcion: "1.5", momio: 1.05 },
+      { descripcion: "2.5", momio: 1.002 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.04 },
+      { descripcion: "1.5", momio: 1.22 },
+      { descripcion: "2.5", momio: 1.72 },
+      { descripcion: "3.5", momio: 2.75 },
+      { descripcion: "4.5", momio: 5.5 },
+      { descripcion: "5.5", momio: 11 },
+      { descripcion: "6.5", momio: 23 },
+      { descripcion: "7.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 13 },
+      { descripcion: "1.5", momio: 4 },
+      { descripcion: "2.5", momio: 2 },
+      { descripcion: "3.5", momio: 1.4 },
+      { descripcion: "4.5", momio: 1.14 },
+      { descripcion: "5.5", momio: 1.05 },
+      { descripcion: "6.5", momio: 1.012 },
+      { descripcion: "7.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.025 },
+      { descripcion: "1.5", momio: 1.16 },
+      { descripcion: "2.5", momio: 1.48 },
+      { descripcion: "3.5", momio: 2.3 },
+      { descripcion: "4.5", momio: 4 },
+      { descripcion: "5.5", momio: 7 },
+      { descripcion: "6.5", momio: 15 },
+      { descripcion: "7.5", momio: 26 },
+      { descripcion: "8.5", momio: 51 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 17 },
+      { descripcion: "1.5", momio: 5 },
+      { descripcion: "2.5", momio: 2.34 },
+      { descripcion: "3.5", momio: 1.61 },
+      { descripcion: "4.5", momio: 1.25 },
+      { descripcion: "5.5", momio: 1.1 },
+      { descripcion: "6.5", momio: 1.03 },
+      { descripcion: "7.5", momio: 1.01 },
+      { descripcion: "8.5", momio: 1.002 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 19},
+      { descripcion: "empate", momio: 9},
+      { descripcion: "visita", momio: 1.12}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 22.5 },
+        { descripcion: "2", momio: 67 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 4.95 },
+        { descripcion: "2", momio: 4.11 },
+        { descripcion: "3", momio: 4.56 },
+        { descripcion: "4", momio: 6.57 },
+        { descripcion: "5", momio: 11 },
+        { descripcion: "6", momio: 19.5 },
+        { descripcion: "7", momio: 38 },
+        { descripcion: "8", momio: 84 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 41 },
+      { descripcion: "2-0", momio: 101 },
+      { descripcion: "3-0", momio: 501 },
+
+      { descripcion: "2-1", momio: 51 },
+      { descripcion: "3-1", momio: 201 },
+
+      { descripcion: "3-2", momio: 151 },
+
+      { descripcion: "0-0", momio: 17 },
+      { descripcion: "1-1", momio: 17 },
+      { descripcion: "2-2", momio: 41 },
+      { descripcion: "3-3", momio: 151 },
+
+      { descripcion: "0-1", momio: 8 },
+      { descripcion: "0-2", momio: 6 },
+      { descripcion: "0-3", momio: 6 },
+      { descripcion: "0-4", momio: 8.5 },
+      { descripcion: "0-5", momio: 15 },
+      { descripcion: "0-6", momio: 26 },
+      { descripcion: "0-7", momio: 51 },
+      { descripcion: "0-8", momio: 101 },
+      { descripcion: "0-9", momio: 251 },
+
+      { descripcion: "1-2", momio: 13 },
+      { descripcion: "1-3", momio: 13 },
+      { descripcion: "1-4", momio: 19 },
+      { descripcion: "1-5", momio: 29 },
+      { descripcion: "1-6", momio: 41 },
+      { descripcion: "1-7", momio: 81 },
+      { descripcion: "1-8", momio: 151 },
+      { descripcion: "1-9", momio: 501 },
+
+      { descripcion: "2-3", momio: 41 },
+      { descripcion: "2-4", momio: 51 },
+      { descripcion: "2-5", momio: 81 },
+      { descripcion: "2-6", momio: 126 },
+      { descripcion: "2-7", momio: 251 },
+
+      { descripcion: "3-4", momio: 201 },
+      { descripcion: "3-5", momio: 351 }
+    ]
   }
 };
 
@@ -8680,7 +8806,8 @@ const HORAS_LIMITE = {
   "panamainglaterra": new Date("2026-06-27T20:50:00Z"),
   "croaciaghana": new Date("2026-06-27T20:50:00Z"),
   "republicademocraticadelcongouzbequistan": new Date("2026-06-27T23:20:00Z"),
-  "colombiaportugal": new Date("2026-06-27T23:20:00Z")
+  "colombiaportugal": new Date("2026-06-27T23:20:00Z"),
+  "jordaniaargentina": new Date("2026-06-28T01:50:00Z")
 };
 
 function generarCodigo() {
