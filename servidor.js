@@ -8733,6 +8733,113 @@ const MOMIOS = {
       { descripcion: "3-4", momio: 201 },
       { descripcion: "3-5", momio: 351 }
     ]
+  },
+"argeliaaustria": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.57 },
+      { descripcion: "1.5", momio: 4 },
+      { descripcion: "2.5", momio: 13 },
+      { descripcion: "3.5", momio: 41 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 2.25 },
+      { descripcion: "1.5", momio: 1.22 },
+      { descripcion: "2.5", momio: 1.04 },
+      { descripcion: "3.5", momio: 1.004 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.57 },
+      { descripcion: "1.5", momio: 4 },
+      { descripcion: "2.5", momio: 13 },
+      { descripcion: "3.5", momio: 41 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 2.25 },
+      { descripcion: "1.5", momio: 1.22 },
+      { descripcion: "2.5", momio: 1.04 },
+      { descripcion: "3.5", momio: 1.004 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.25 },
+      { descripcion: "1.5", momio: 1.72 },
+      { descripcion: "2.5", momio: 3.47 },
+      { descripcion: "3.5", momio: 6.5 },
+      { descripcion: "4.5", momio: 17 },
+      { descripcion: "5.5", momio: 34 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 4 },
+      { descripcion: "1.5", momio: 2.1 },
+      { descripcion: "2.5", momio: 1.35 },
+      { descripcion: "3.5", momio: 1.11 },
+      { descripcion: "4.5", momio: 1.025 },
+      { descripcion: "5.5", momio: 1.005 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 3.5},
+      { descripcion: "empate", momio: 2.05},
+      { descripcion: "visita", momio: 3.5}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 5 },
+        { descripcion: "2", momio: 11 },
+        { descripcion: "3", momio: 27 },
+        { descripcion: "4", momio: 66 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 5 },
+        { descripcion: "2", momio: 11 },
+        { descripcion: "3", momio: 27 },
+        { descripcion: "4", momio: 66 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 7.5 },
+      { descripcion: "2-0", momio: 15 },
+      { descripcion: "3-0", momio: 41 },
+      { descripcion: "4-0", momio: 81 },
+      { descripcion: "5-0", momio: 351 },
+
+      { descripcion: "2-1", momio: 15 },
+      { descripcion: "3-1", momio: 41 },
+      { descripcion: "4-1", momio: 81 },
+      { descripcion: "5-1", momio: 351 },
+
+      { descripcion: "3-2", momio: 51 },
+      { descripcion: "4-2", momio: 151 },
+
+      { descripcion: "4-3", momio: 451 },
+
+      { descripcion: "0-0", momio: 4 },
+      { descripcion: "1-1", momio: 4.5 },
+      { descripcion: "2-2", momio: 19 },
+      { descripcion: "3-3", momio: 81 },
+
+      { descripcion: "0-1", momio: 7.5 },
+      { descripcion: "0-2", momio: 15 },
+      { descripcion: "0-3", momio: 41 },
+      { descripcion: "0-4", momio: 81 },
+      { descripcion: "0-5", momio: 351 },
+
+      { descripcion: "1-2", momio: 15 },
+      { descripcion: "1-3", momio: 41 },
+      { descripcion: "1-4", momio: 81 },
+      { descripcion: "1-5", momio: 351 },
+
+      { descripcion: "2-3", momio: 51 },
+      { descripcion: "2-4", momio: 151 },
+
+      { descripcion: "3-4", momio: 451 }
+    ]
   }
 };
 
@@ -8807,7 +8914,8 @@ const HORAS_LIMITE = {
   "croaciaghana": new Date("2026-06-27T20:50:00Z"),
   "republicademocraticadelcongouzbequistan": new Date("2026-06-27T23:20:00Z"),
   "colombiaportugal": new Date("2026-06-27T23:20:00Z"),
-  "jordaniaargentina": new Date("2026-06-28T01:50:00Z")
+  "jordaniaargentina": new Date("2026-06-28T01:50:00Z"),
+  "argeliaaustria": new Date("2026-06-28T01:50:00Z")
 };
 
 function generarCodigo() {
