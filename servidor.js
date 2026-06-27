@@ -8360,6 +8360,122 @@ const MOMIOS = {
 
       { descripcion: "3-4", momio: 301 }
     ]
+  },
+"republicademocraticadelcongouzbequistan": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.2 },
+      { descripcion: "1.5", momio: 1.9 },
+      { descripcion: "2.5", momio: 4 },
+      { descripcion: "3.5", momio: 10 },
+      { descripcion: "4.5", momio: 26 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 4.33 },
+      { descripcion: "1.5", momio: 1.8 },
+      { descripcion: "2.5", momio: 1.22 },
+      { descripcion: "3.5", momio: 1.062 },
+      { descripcion: "4.5", momio: 1.01 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.66 },
+      { descripcion: "1.5", momio: 4.5 },
+      { descripcion: "2.5", momio: 15 },
+      { descripcion: "3.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 2.1 },
+      { descripcion: "1.5", momio: 1.18 },
+      { descripcion: "2.5", momio: 1.03 },
+      { descripcion: "3.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.071 },
+      { descripcion: "1.5", momio: 1.4 },
+      { descripcion: "2.5", momio: 2.49 },
+      { descripcion: "3.5", momio: 4 },
+      { descripcion: "4.5", momio: 8 },
+      { descripcion: "5.5", momio: 19 },
+      { descripcion: "6.5", momio: 34 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 9 },
+      { descripcion: "1.5", momio: 3 },
+      { descripcion: "2.5", momio: 1.52 },
+      { descripcion: "3.5", momio: 1.25 },
+      { descripcion: "4.5", momio: 1.083 },
+      { descripcion: "5.5", momio: 1.02 },
+      { descripcion: "6.5", momio: 1.005 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.7},
+      { descripcion: "empate", momio: 3.8},
+      { descripcion: "visita", momio: 5}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.6 },
+        { descripcion: "2", momio: 5.2 },
+        { descripcion: "3", momio: 9.4 },
+        { descripcion: "4", momio: 20 },
+        { descripcion: "5", momio: 38 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 7.03 },
+        { descripcion: "2", momio: 16 },
+        { descripcion: "3", momio: 36.5 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 6 },
+      { descripcion: "2-0", momio: 7.5 },
+      { descripcion: "3-0", momio: 13 },
+      { descripcion: "4-0", momio: 29 },
+      { descripcion: "5-0", momio: 51 },
+      { descripcion: "6-0", momio: 151 },
+      { descripcion: "7-0", momio: 501 },
+
+      { descripcion: "2-1", momio: 9 },
+      { descripcion: "3-1", momio: 17 },
+      { descripcion: "4-1", momio: 34 },
+      { descripcion: "5-1", momio: 67 },
+      { descripcion: "6-1", momio: 151 },
+
+      { descripcion: "3-2", momio: 34 },
+      { descripcion: "4-2", momio: 51 },
+      { descripcion: "5-2", momio: 126 },
+      { descripcion: "6-2", momio: 401 },
+
+      { descripcion: "4-3", momio: 151 },
+      { descripcion: "5-3", momio: 401 },
+
+      { descripcion: "0-0", momio: 8.5 },
+      { descripcion: "1-1", momio: 7.5 },
+      { descripcion: "2-2", momio: 21 },
+      { descripcion: "3-3", momio: 67 },
+      { descripcion: "4-4", momio: 501 },
+
+      { descripcion: "0-1", momio: 12 },
+      { descripcion: "0-2", momio: 26 },
+      { descripcion: "0-3", momio: 51 },
+      { descripcion: "0-4", momio: 201 },
+
+      { descripcion: "1-2", momio: 17 },
+      { descripcion: "1-3", momio: 41 },
+      { descripcion: "1-4", momio: 126 },
+
+      { descripcion: "2-3", momio: 51 },
+      { descripcion: "2-4", momio: 151 },
+
+      { descripcion: "3-4", momio: 251 }
+    ]
   }
 };
 
@@ -8431,7 +8547,8 @@ const HORAS_LIMITE = {
   "egiptoiran": new Date("2026-06-27T02:50:00Z"),
   "nuevazelandabelgica": new Date("2026-06-27T02:50:00Z"),
   "panamainglaterra": new Date("2026-06-27T20:50:00Z"),
-  "croaciaghana": new Date("2026-06-27T20:50:00Z")
+  "croaciaghana": new Date("2026-06-27T20:50:00Z"),
+  "republicademocraticadelcongouzbequistan": new Date("2026-06-27T23:20:00Z")
 };
 
 function generarCodigo() {
