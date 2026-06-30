@@ -9327,6 +9327,370 @@ const MOMIOS = {
 
       { descripcion: "3-4", momio: 151 }
     ]
+  },
+"costademarfilnoruega": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.4 },
+      { descripcion: "1.5", momio: 3 },
+      { descripcion: "2.5", momio: 8 },
+      { descripcion: "3.5", momio: 23 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 2.75 },
+      { descripcion: "1.5", momio: 1.36 },
+      { descripcion: "2.5", momio: 1.083 },
+      { descripcion: "3.5", momio: 1.012 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.2 },
+      { descripcion: "1.5", momio: 2 },
+      { descripcion: "2.5", momio: 4.33 },
+      { descripcion: "3.5", momio: 11 },
+      { descripcion: "4.5", momio: 26 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 4.33 },
+      { descripcion: "1.5", momio: 1.72 },
+      { descripcion: "2.5", momio: 1.2 },
+      { descripcion: "3.5", momio: 1.05 },
+      { descripcion: "4.5", momio: 1.01 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.05 },
+      { descripcion: "1.5", momio: 1.28 },
+      { descripcion: "2.5", momio: 2.47 },
+      { descripcion: "3.5", momio: 3.2 },
+      { descripcion: "4.5", momio: 6 },
+      { descripcion: "5.5", momio: 13 },
+      { descripcion: "6.5", momio: 26 },
+      { descripcion: "7.5", momio: 51 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 11 },
+      { descripcion: "1.5", momio: 3.75 },
+      { descripcion: "2.5", momio: 1.88 },
+      { descripcion: "3.5", momio: 1.36 },
+      { descripcion: "4.5", momio: 1.12 },
+      { descripcion: "5.5", momio: 1.04 },
+      { descripcion: "6.5", momio: 1.01 },
+      { descripcion: "7.5", momio: 1.002 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 3.4},
+      { descripcion: "empate", momio: 3.4},
+      { descripcion: "visita", momio: 2.15}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 6.24 },
+        { descripcion: "2", momio: 11.5 },
+        { descripcion: "3", momio: 22.5 },
+        { descripcion: "4", momio: 52.5 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 4.49 },
+        { descripcion: "2", momio: 6.97 },
+        { descripcion: "3", momio: 14 },
+        { descripcion: "4", momio: 27 },
+        { descripcion: "5", momio: 57.5 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 12 },
+      { descripcion: "2-0", momio: 19 },
+      { descripcion: "3-0", momio: 41 },
+      { descripcion: "4-0", momio: 81 },
+      { descripcion: "5-0", momio: 251 },
+
+      { descripcion: "2-1", momio: 13 },
+      { descripcion: "3-1", momio: 29 },
+      { descripcion: "4-1", momio: 51 },
+      { descripcion: "5-1", momio: 151 },
+
+      { descripcion: "3-2", momio: 34 },
+      { descripcion: "4-2", momio: 67 },
+      { descripcion: "5-2", momio: 201 },
+
+      { descripcion: "4-3", momio: 126 },
+      { descripcion: "5-3", momio: 401 },
+
+      { descripcion: "0-0", momio: 11 },
+      { descripcion: "1-1", momio: 6.5 },
+      { descripcion: "2-2", momio: 13 },
+      { descripcion: "3-3", momio: 41 },
+      { descripcion: "4-4", momio: 201 },
+
+      { descripcion: "0-1", momio: 8.5 },
+      { descripcion: "0-2", momio: 11 },
+      { descripcion: "0-3", momio: 21 },
+      { descripcion: "0-4", momio: 41 },
+      { descripcion: "0-5", momio: 81 },
+      { descripcion: "0-6", momio: 251 },
+
+      { descripcion: "1-2", momio: 9.5 },
+      { descripcion: "1-3", momio: 19 },
+      { descripcion: "1-4", momio: 41 },
+      { descripcion: "1-5", momio: 81 },
+      { descripcion: "1-6", momio: 201 },
+
+      { descripcion: "2-3", momio: 29 },
+      { descripcion: "2-4", momio: 51 },
+      { descripcion: "2-5", momio: 101 },
+      { descripcion: "2-6", momio: 351 },
+
+      { descripcion: "3-4", momio: 101 },
+      { descripcion: "3-5", momio: 251 }
+    ]
+  },
+"franciasuecia": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.05 },
+      { descripcion: "1.5", momio: 1.3 },
+      { descripcion: "2.5", momio: 1.9 },
+      { descripcion: "3.5", momio: 3.5 },
+      { descripcion: "4.5", momio: 7 },
+      { descripcion: "5.5", momio: 15 },
+      { descripcion: "6.5", momio: 29 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 11 },
+      { descripcion: "1.5", momio: 3.4 },
+      { descripcion: "2.5", momio: 1.8 },
+      { descripcion: "3.5", momio: 1.28 },
+      { descripcion: "4.5", momio: 1.1 },
+      { descripcion: "5.5", momio: 1.03 },
+      { descripcion: "6.5", momio: 1.006 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.8 },
+      { descripcion: "1.5", momio: 5 },
+      { descripcion: "2.5", momio: 19 },
+      { descripcion: "3.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 1.9 },
+      { descripcion: "1.5", momio: 1.16 },
+      { descripcion: "2.5", momio: 1.02 },
+      { descripcion: "3.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.025 },
+      { descripcion: "1.5", momio: 1.14 },
+      { descripcion: "2.5", momio: 1.65 },
+      { descripcion: "3.5", momio: 2.2 },
+      { descripcion: "4.5", momio: 3.75 },
+      { descripcion: "5.5", momio: 7 },
+      { descripcion: "6.5", momio: 13 },
+      { descripcion: "7.5", momio: 26 },
+      { descripcion: "8.5", momio: 51 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 17 },
+      { descripcion: "1.5", momio: 5.5 },
+      { descripcion: "2.5", momio: 2.5 },
+      { descripcion: "3.5", momio: 1.66 },
+      { descripcion: "4.5", momio: 1.28 },
+      { descripcion: "5.5", momio: 1.1 },
+      { descripcion: "6.5", momio: 1.04 },
+      { descripcion: "7.5", momio: 1.01 },
+      { descripcion: "8.5", momio: 1.002 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.27},
+      { descripcion: "empate", momio: 6},
+      { descripcion: "visita", momio: 11}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 4.75 },
+        { descripcion: "2", momio: 4.46 },
+        { descripcion: "3", momio: 5.67 },
+        { descripcion: "4", momio: 8.98 },
+        { descripcion: "5", momio: 16 },
+        { descripcion: "6", momio: 29 },
+        { descripcion: "7", momio: 61 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 14.5 },
+        { descripcion: "2", momio: 29 },
+        { descripcion: "3", momio: 94.5 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 9.5 },
+      { descripcion: "2-0", momio: 7.5 },
+      { descripcion: "3-0", momio: 8.5 },
+      { descripcion: "4-0", momio: 13 },
+      { descripcion: "5-0", momio: 23 },
+      { descripcion: "6-0", momio: 41 },
+      { descripcion: "7-0", momio: 81 },
+      { descripcion: "8-0", momio: 151 },
+      { descripcion: "9-0", momio: 501 },
+
+      { descripcion: "2-1", momio: 9.5 },
+      { descripcion: "3-1", momio: 11 },
+      { descripcion: "4-1", momio: 17 },
+      { descripcion: "5-1", momio: 29 },
+      { descripcion: "6-1", momio: 51 },
+      { descripcion: "7-1", momio: 101 },
+      { descripcion: "8-1", momio: 251 },
+
+      { descripcion: "3-2", momio: 26 },
+      { descripcion: "4-2", momio: 41 },
+      { descripcion: "5-2", momio: 51 },
+      { descripcion: "6-2", momio: 101 },
+      { descripcion: "7-2", momio: 201 },
+      { descripcion: "8-2", momio: 501 },
+
+      { descripcion: "4-3", momio: 81 },
+      { descripcion: "5-3", momio: 51 },
+      { descripcion: "6-3", momio: 301 },
+
+      { descripcion: "0-0", momio: 19 },
+      { descripcion: "1-1", momio: 12 },
+      { descripcion: "2-2", momio: 21 },
+      { descripcion: "3-3", momio: 67 },
+      { descripcion: "4-4", momio: 301 },
+
+      { descripcion: "0-1", momio: 29 },
+      { descripcion: "0-2", momio: 51 },
+      { descripcion: "0-3", momio: 151 },
+
+      { descripcion: "1-2", momio: 29 },
+      { descripcion: "1-3", momio: 67 },
+      { descripcion: "1-4", momio: 251 },
+
+      { descripcion: "2-3", momio: 67 },
+      { descripcion: "2-4", momio: 201 },
+
+      { descripcion: "3-4", momio: 251 }
+    ]
+  },
+"mexicoecuador": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.36 },
+      { descripcion: "1.5", momio: 2.75 },
+      { descripcion: "2.5", momio: 7 },
+      { descripcion: "3.5", momio: 21 },
+      { descripcion: "4.5", momio: 51 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 3 },
+      { descripcion: "1.5", momio: 1.4 },
+      { descripcion: "2.5", momio: 1.1 },
+      { descripcion: "3.5", momio: 1.015 },
+      { descripcion: "4.5", momio: 1.002 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.72 },
+      { descripcion: "1.5", momio: 4.5 },
+      { descripcion: "2.5", momio: 17 },
+      { descripcion: "3.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 2 },
+      { descripcion: "1.5", momio: 1.18 },
+      { descripcion: "2.5", momio: 1.025 },
+      { descripcion: "3.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.14 },
+      { descripcion: "1.5", momio: 1.61 },
+      { descripcion: "2.5", momio: 2.38 },
+      { descripcion: "3.5", momio: 6 },
+      { descripcion: "4.5", momio: 15 },
+      { descripcion: "5.5", momio: 29 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 5.5 },
+      { descripcion: "1.5", momio: 2.3 },
+      { descripcion: "2.5", momio: 1.31 },
+      { descripcion: "3.5", momio: 1.12 },
+      { descripcion: "4.5", momio: 1.03 },
+      { descripcion: "5.5", momio: 1.006 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 2.15},
+      { descripcion: "empate", momio: 2.9},
+      { descripcion: "visita", momio: 4}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.67 },
+        { descripcion: "2", momio: 6.69 },
+        { descripcion: "3", momio: 15 },
+        { descripcion: "4", momio: 38 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 5.67 },
+        { descripcion: "2", momio: 13 },
+        { descripcion: "3", momio: 36.5 },
+        { descripcion: "4", momio: 116 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 5.5 },
+      { descripcion: "2-0", momio: 9 },
+      { descripcion: "3-0", momio: 21 },
+      { descripcion: "4-0", momio: 51 },
+      { descripcion: "5-0", momio: 126 },
+      { descripcion: "6-0", momio: 501 },
+
+      { descripcion: "2-1", momio: 11 },
+      { descripcion: "3-1", momio: 26 },
+      { descripcion: "4-1", momio: 51 },
+      { descripcion: "5-1", momio: 151 },
+
+      { descripcion: "3-2", momio: 41 },
+      { descripcion: "4-2", momio: 101 },
+      { descripcion: "5-2", momio: 301 },
+
+      { descripcion: "4-3", momio: 301 },
+
+      { descripcion: "0-0", momio: 5.5 },
+      { descripcion: "1-1", momio: 6 },
+      { descripcion: "2-2", momio: 23 },
+      { descripcion: "3-3", momio: 101 },
+
+      { descripcion: "0-1", momio: 8.5 },
+      { descripcion: "0-2", momio: 19 },
+      { descripcion: "0-3", momio: 51 },
+      { descripcion: "0-4", momio: 151 },
+
+      { descripcion: "1-2", momio: 17 },
+      { descripcion: "1-3", momio: 41 },
+      { descripcion: "1-4", momio: 126 },
+      { descripcion: "1-5", momio: 501 },
+
+      { descripcion: "2-3", momio: 51 },
+      { descripcion: "2-4", momio: 201 },
+
+      { descripcion: "3-4", momio: 401 }
+    ]
   }
 };
 
@@ -9405,8 +9769,11 @@ const HORAS_LIMITE = {
   "argeliaaustria": new Date("2026-06-28T01:50:00Z"),
   "sudafricacanada": new Date("2026-06-28T18:50:00Z"),
   "brasiljapon": new Date("2026-06-29T16:50:00Z"),
-  "alemaniaparaguay": new Date("2026-06-29T21:20:00Z"),
-  "paisesbajosmarruecos": new Date("2026-06-30T01:50:00Z")
+  "alemaniaparaguay": new Date("2026-06-29T20:20:00Z"),
+  "paisesbajosmarruecos": new Date("2026-06-30T01:50:00Z"),
+  "costademarfilnoruega": new Date("2026-06-30T16:50:00Z"),
+  "franciasuecia": new Date("2026-06-30T20:50:00Z"),
+  "mexicoecuador": new Date("2026-07-01T00:50:00Z")
 };
 
 function generarCodigo() {
