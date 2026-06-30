@@ -9919,6 +9919,127 @@ const MOMIOS = {
 
       { descripcion: "3-4", momio: 151 }
     ]
+  },
+"estadosunidosbosniayherzegovina": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.1 },
+      { descripcion: "1.5", momio: 1.53 },
+      { descripcion: "2.5", momio: 2.62 },
+      { descripcion: "3.5", momio: 5.5 },
+      { descripcion: "4.5", momio: 13 },
+      { descripcion: "5.5", momio: 29 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 7 },
+      { descripcion: "1.5", momio: 2.37 },
+      { descripcion: "2.5", momio: 1.44 },
+      { descripcion: "3.5", momio: 1.14 },
+      { descripcion: "4.5", momio: 1.04 },
+      { descripcion: "5.5", momio: 1.006 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.83 },
+      { descripcion: "1.5", momio: 5.5 },
+      { descripcion: "2.5", momio: 21 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 1.83 },
+      { descripcion: "1.5", momio: 1.14 },
+      { descripcion: "2.5", momio: 1.015 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.04 },
+      { descripcion: "1.5", momio: 1.25 },
+      { descripcion: "2.5", momio: 2.06 },
+      { descripcion: "3.5", momio: 3.2 },
+      { descripcion: "4.5", momio: 5.5 },
+      { descripcion: "5.5", momio: 11 },
+      { descripcion: "6.5", momio: 23 },
+      { descripcion: "7.5", momio: 51 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 12 },
+      { descripcion: "1.5", momio: 4 },
+      { descripcion: "2.5", momio: 1.89 },
+      { descripcion: "3.5", momio: 1.36 },
+      { descripcion: "4.5", momio: 1.14 },
+      { descripcion: "5.5", momio: 1.05 },
+      { descripcion: "6.5", momio: 1.012 },
+      { descripcion: "7.5", momio: 1.002 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.38},
+      { descripcion: "empate", momio: 5},
+      { descripcion: "visita", momio: 8}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.86 },
+        { descripcion: "2", momio: 4.33 },
+        { descripcion: "3", momio: 6.47 },
+        { descripcion: "4", momio: 12 },
+        { descripcion: "5", momio: 24 },
+        { descripcion: "6", momio: 50.5 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 11 },
+        { descripcion: "2", momio: 25.5 },
+        { descripcion: "3", momio: 72 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 6.5 },
+      { descripcion: "2-0", momio: 6.5 },
+      { descripcion: "3-0", momio: 9 },
+      { descripcion: "4-0", momio: 17 },
+      { descripcion: "5-0", momio: 34 },
+      { descripcion: "6-0", momio: 67 },
+      { descripcion: "7-0", momio: 151 },
+      { descripcion: "8-0", momio: 451 },
+
+      { descripcion: "2-1", momio: 9.5 },
+      { descripcion: "3-1", momio: 13 },
+      { descripcion: "4-1", momio: 23 },
+      { descripcion: "5-1", momio: 41 },
+      { descripcion: "6-1", momio: 81 },
+      { descripcion: "7-1", momio: 201 },
+
+      { descripcion: "3-2", momio: 34 },
+      { descripcion: "4-2", momio: 51 },
+      { descripcion: "5-2", momio: 81 },
+      { descripcion: "6-2", momio: 151 },
+      { descripcion: "7-2", momio: 501 },
+
+      { descripcion: "4-3", momio: 126 },
+      { descripcion: "5-3", momio: 251 },
+
+      { descripcion: "0-0", momio: 12 },
+      { descripcion: "1-1", momio: 9.5 },
+      { descripcion: "2-2", momio: 23 },
+      { descripcion: "3-3", momio: 81 },
+
+      { descripcion: "0-1", momio: 19 },
+      { descripcion: "0-2", momio: 41 },
+      { descripcion: "0-3", momio: 101 },
+      { descripcion: "0-4", momio: 501 },
+
+      { descripcion: "1-2", momio: 26 },
+      { descripcion: "1-3", momio: 67 },
+      { descripcion: "1-4", momio: 251 },
+
+      { descripcion: "2-3", momio: 67 },
+      { descripcion: "2-4", momio: 251 },
+
+      { descripcion: "3-4", momio: 301 }
+    ]
   }
 };
 
@@ -10003,8 +10124,10 @@ const HORAS_LIMITE = {
   "franciasuecia": new Date("2026-06-30T20:50:00Z"),
   "mexicoecuador": new Date("2026-07-01T00:50:00Z"),
   "inglaterrarepublicademocraticadelcongo": new Date("2026-07-01T15:50:00Z"),
-  "belgicasenegal": new Date("2026-07-01T19:50:00Z")
+  "belgicasenegal": new Date("2026-07-01T19:50:00Z"),
+  "estadosunidosbosniayherzegovina": new Date("2026-07-01T23:50:00Z")
 };
+
 
 function generarCodigo() {
     return crypto.randomBytes(3).toString("hex").toUpperCase();
