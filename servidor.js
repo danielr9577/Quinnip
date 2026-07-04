@@ -10915,9 +10915,9 @@ const MOMIOS = {
     ],
 
     resultado: [
-      { descripcion: "casa", momio: 5.5},
-      { descripcion: "empate", momio: 3.5},
-      { descripcion: "visita", momio: 1.72}
+      { descripcion: "casa", momio: 17},
+      { descripcion: "empate", momio: 7},
+      { descripcion: "visita", momio: 1.16}
     ],
 
     diferenciaCasa:[
