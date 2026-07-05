@@ -11111,6 +11111,124 @@ const MOMIOS = {
       { descripcion: "3-4", momio: 101 },
       { descripcion: "3-5", momio: 401 }
     ]
+  },
+"mexicoinglaterra": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.44 },
+      { descripcion: "1.5", momio: 3.25 },
+      { descripcion: "2.5", momio: 10 },
+      { descripcion: "3.5", momio: 26 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 2.62 },
+      { descripcion: "1.5", momio: 1.33 },
+      { descripcion: "2.5", momio: 1.062 },
+      { descripcion: "3.5", momio: 1.01 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.33 },
+      { descripcion: "1.5", momio: 2.62 },
+      { descripcion: "2.5", momio: 7 },
+      { descripcion: "3.5", momio: 19 },
+      { descripcion: "4.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 3.25 },
+      { descripcion: "1.5", momio: 1.44 },
+      { descripcion: "2.5", momio: 1.1 },
+      { descripcion: "3.5", momio: 1.02 },
+      { descripcion: "4.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.083 },
+      { descripcion: "1.5", momio: 1.44 },
+      { descripcion: "2.5", momio: 2.17 },
+      { descripcion: "3.5", momio: 4.5 },
+      { descripcion: "4.5", momio: 10 },
+      { descripcion: "5.5", momio: 21 },
+      { descripcion: "6.5", momio: 41 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 13 },
+      { descripcion: "1.5", momio: 4.5 },
+      { descripcion: "2.5", momio: 2.09 },
+      { descripcion: "3.5", momio: 1.5 },
+      { descripcion: "4.5", momio: 1.2 },
+      { descripcion: "5.5", momio: 1.071 },
+      { descripcion: "6.5", momio: 1.02 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 3.1},
+      { descripcion: "empate", momio: 3.2},
+      { descripcion: "visita", momio: 2.4}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 4.8 },
+        { descripcion: "2", momio: 9.89 },
+        { descripcion: "3", momio: 22.5 },
+        { descripcion: "4", momio: 57.5 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 4.28 },
+        { descripcion: "2", momio: 7.44 },
+        { descripcion: "3", momio: 17 },
+        { descripcion: "4", momio: 36.5 },
+        { descripcion: "5", momio: 116 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 8 },
+      { descripcion: "2-0", momio: 15 },
+      { descripcion: "3-0", momio: 34 },
+      { descripcion: "4-0", momio: 81 },
+      { descripcion: "5-0", momio: 251 },
+
+      { descripcion: "2-1", momio: 12 },
+      { descripcion: "3-1", momio: 29 },
+      { descripcion: "4-1", momio: 67 },
+      { descripcion: "5-1", momio: 201 },
+
+      { descripcion: "3-2", momio: 41 },
+      { descripcion: "4-2", momio: 101 },
+      { descripcion: "5-2", momio: 351 },
+
+      { descripcion: "4-3", momio: 201 },
+
+      { descripcion: "0-0", momio: 7.5 },
+      { descripcion: "1-1", momio: 6.5 },
+      { descripcion: "2-2", momio: 19 },
+      { descripcion: "3-3", momio: 67 },
+      { descripcion: "4-4", momio: 501 },
+
+      { descripcion: "0-1", momio: 7 },
+      { descripcion: "0-2", momio: 11 },
+      { descripcion: "0-3", momio: 26 },
+      { descripcion: "0-4", momio: 51 },
+      { descripcion: "0-5", momio: 151 },
+      { descripcion: "0-6", momio: 501 },
+
+      { descripcion: "1-2", momio: 11 },
+      { descripcion: "1-3", momio: 23 },
+      { descripcion: "1-4", momio: 51 },
+      { descripcion: "1-5", momio: 126 },
+      { descripcion: "1-6", momio: 501 },
+
+      { descripcion: "2-3", momio: 41 },
+      { descripcion: "2-4", momio: 81 },
+      { descripcion: "2-5", momio: 251 },
+
+      { descripcion: "3-4", momio: 151 },
+      { descripcion: "3-5", momio: 501 }
+    ]
   }
 };
 
@@ -11203,9 +11321,10 @@ const HORAS_LIMITE = {
   "australiaegipto": new Date("2026-07-03T17:50:00Z"),
   "argentinacaboverde": new Date("2026-07-03T21:50:00Z"),
   "colombiaghana": new Date("2026-07-04T01:20:00Z"),
-  "canadamarruecos": new Date("2026-07-04T16:50:00Z"),
+  "canadamarruecos": new Date("2026-09-04T16:50:00Z"),
   "paraguayfrancia": new Date("2026-07-04T20:50:00Z"),
-  "brasilnoruega": new Date("2026-07-05T19:50:00Z")
+  "brasilnoruega": new Date("2026-07-05T19:50:00Z"),
+  "mexicoinglaterra": new Date("2026-07-05T23:50:00Z")
 };
 
 
