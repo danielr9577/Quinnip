@@ -11815,7 +11815,7 @@ const HORAS_LIMITE = {
   "australiaegipto": new Date("2026-07-03T17:50:00Z"),
   "argentinacaboverde": new Date("2026-07-03T21:50:00Z"),
   "colombiaghana": new Date("2026-07-04T01:20:00Z"),
-  "canadamarruecos": new Date("2026-07-10T16:50:00Z"),
+  "canadamarruecos": new Date("2026-07-04T16:50:00Z"),
   "paraguayfrancia": new Date("2026-07-04T20:50:00Z"),
   "brasilnoruega": new Date("2026-07-05T20:10:00Z"),
   "mexicoinglaterra": new Date("2026-07-05T23:50:00Z"),
