@@ -11723,6 +11723,128 @@ const MOMIOS = {
       { descripcion: "3-4", momio: 151 },
       { descripcion: "3-5", momio: 501 }
     ]
+  },
+"franciamarruecos": {
+
+    golesMasCasa: [
+      { descripcion: "0.5", momio: 1.14 },
+      { descripcion: "1.5", momio: 1.72 },
+      { descripcion: "2.5", momio: 3.25 },
+      { descripcion: "3.5", momio: 7 },
+      { descripcion: "4.5", momio: 19 },
+      { descripcion: "5.5", momio: 41 }
+    ],
+
+    golesMenosCasa: [
+      { descripcion: "0.5", momio: 5.5 },
+      { descripcion: "1.5", momio: 2 },
+      { descripcion: "2.5", momio: 1.33 },
+      { descripcion: "3.5", momio: 1.1 },
+      { descripcion: "4.5", momio: 1.02 },
+      { descripcion: "5.5", momio: 1.004 }
+    ],
+
+    golesMasVisita: [
+      { descripcion: "0.5", momio: 1.66 },
+      { descripcion: "1.5", momio: 4.5 },
+      { descripcion: "2.5", momio: 17 },
+      { descripcion: "3.5", momio: 51 }
+    ],
+
+    golesMenosVisita: [
+      { descripcion: "0.5", momio: 2.1 },
+      { descripcion: "1.5", momio: 1.18 },
+      { descripcion: "2.5", momio: 1.025 },
+      { descripcion: "3.5", momio: 1.002 }
+    ],
+
+    golesMasTotales: [
+      { descripcion: "0.5", momio: 1.062 },
+      { descripcion: "1.5", momio: 1.3 },
+      { descripcion: "2.5", momio: 1.98 },
+      { descripcion: "3.5", momio: 3.4 },
+      { descripcion: "4.5", momio: 6.5 },
+      { descripcion: "5.5", momio: 13 },
+      { descripcion: "6.5", momio: 26 },
+      { descripcion: "7.5", momio: 51 }
+    ],
+
+    golesMenosTotales: [
+      { descripcion: "0.5", momio: 10 },
+      { descripcion: "1.5", momio: 3.5 },
+      { descripcion: "2.5", momio: 1.81 },
+      { descripcion: "3.5", momio: 1.33 },
+      { descripcion: "4.5", momio: 1.11 },
+      { descripcion: "5.5", momio: 1.04 },
+      { descripcion: "6.5", momio: 1.01 },
+      { descripcion: "7.5", momio: 1.002 }
+    ],
+
+    resultado: [
+      { descripcion: "casa", momio: 1.57},
+      { descripcion: "empate", momio: 3.8},
+      { descripcion: "visita", momio: 6.5}
+    ],
+
+    diferenciaCasa:[
+        { descripcion: "1", momio: 3.94 },
+        { descripcion: "2", momio: 5 },
+        { descripcion: "3", momio: 8.49 },
+        { descripcion: "4", momio: 16 },
+        { descripcion: "5", momio: 29 },
+        { descripcion: "6", momio: 78.5 }
+      ],
+
+    diferenciaVisita: [
+        { descripcion: "1", momio: 9.39 },
+        { descripcion: "2", momio: 20.5 },
+        { descripcion: "3", momio: 52.5 }
+      ],
+
+    marcadorExacto: [
+      { descripcion: "1-0", momio: 7 },
+      { descripcion: "2-0", momio: 7.5 },
+      { descripcion: "3-0", momio: 12 },
+      { descripcion: "4-0", momio: 23 },
+      { descripcion: "5-0", momio: 41 },
+      { descripcion: "6-0", momio: 101 },
+      { descripcion: "7-0", momio: 301 },
+
+      { descripcion: "2-1", momio: 9 },
+      { descripcion: "3-1", momio: 15 },
+      { descripcion: "4-1", momio: 29 },
+      { descripcion: "5-1", momio: 51 },
+      { descripcion: "6-1", momio: 101 },
+      { descripcion: "7-1", momio: 351 },
+
+      { descripcion: "3-2", momio: 29 },
+      { descripcion: "4-2", momio: 51 },
+      { descripcion: "5-2", momio: 101 },
+      { descripcion: "6-2", momio: 251 },
+
+      { descripcion: "4-3", momio: 126 },
+      { descripcion: "5-3", momio: 251 },
+
+      { descripcion: "0-0", momio: 10 },
+      { descripcion: "1-1", momio: 7.5 },
+      { descripcion: "2-2", momio: 19 },
+      { descripcion: "3-3", momio: 67 },
+      { descripcion: "4-4", momio: 401 },
+
+      { descripcion: "0-1", momio: 17 },
+      { descripcion: "0-2", momio: 34 },
+      { descripcion: "0-3", momio: 81 },
+      { descripcion: "0-4", momio: 251 },
+
+      { descripcion: "1-2", momio: 21 },
+      { descripcion: "1-3", momio: 51 },
+      { descripcion: "1-4", momio: 151 },
+
+      { descripcion: "2-3", momio: 51 },
+      { descripcion: "2-4", momio: 151 },
+
+      { descripcion: "3-4", momio: 251 }
+    ]
   }
 };
 
@@ -11822,7 +11944,8 @@ const HORAS_LIMITE = {
   "portugalespana": new Date("2026-07-06T18:50:00Z"),
   "estadosunidosbelgica": new Date("2026-07-06T23:50:00Z"),
   "argentinaegipto": new Date("2026-07-07T15:50:00Z"),
-  "suizacolombia": new Date("2026-07-07T19:50:00Z")
+  "suizacolombia": new Date("2026-07-07T19:50:00Z"),
+  "franciamarruecos": new Date("2026-07-09T19:50:00Z")
 };
 
 
