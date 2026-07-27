@@ -13106,7 +13106,7 @@ app.post("/ligas", async (req, res) => {
         `, [administradorUid, administradorNombre]);
 
         await db.query(
-            "INSERT INTO ligas (nombre, administradorUid, codigo) VALUES ($1, $2, $3)",
+            "INSERT INTO ligas (nombre, administrador, codigo) VALUES ($1, $2, $3)",
             [nombre, administradorUid, codigo]
         );
 
