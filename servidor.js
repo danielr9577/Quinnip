@@ -107,6 +107,93 @@ function obtenerPartido(id) {
     };
 }
 
+function calcularLambdas(ratingCasa, ratingVisita) {
+
+    ratingCasa += 5;
+
+    const diferencia = Math.abs(ratingCasa - ratingVisita) / 100;
+
+    const lambdaFavorito =
+        1.35 + 9 * Math.pow(diferencia, 1.5);
+
+    const lambdaDebil = Math.max(
+        0.2,
+        1.35 - 1.15 * Math.pow(diferencia, 0.8)
+    );
+
+    if (ratingCasa >= ratingVisita) {
+        return {
+            lambdaCasa: lambdaFavorito,
+            lambdaVisita: lambdaDebil
+        };
+    }
+
+    return {
+        lambdaCasa: lambdaDebil,
+        lambdaVisita: lambdaFavorito
+    };
+}
+
+function poisson(k, lambda) {
+    return Math.exp(-lambda) *
+           Math.pow(lambda, k) /
+           factorial(k);
+}
+
+function factorial(n) {
+
+    let f = 1;
+
+    for (let i = 2; i <= n; i++)
+        f *= i;
+
+    return f;
+}
+
+function calcularMomiosResultado(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let pCasa = 0;
+    let pEmpate = 0;
+    let pVisita = 0;
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob =
+                probCasa *
+                poisson(golesVisita, lambdaVisita);
+
+            if (golesCasa > golesVisita)
+                pCasa += prob;
+            else if (golesCasa === golesVisita)
+                pEmpate += prob;
+            else
+                pVisita += prob;
+        }
+    }
+
+    return [
+        {
+            descripcion: "casa",
+            momio: +(1 / pCasa).toFixed(2)
+        },
+        {
+            descripcion: "empate",
+            momio: +(1 / pEmpate).toFixed(2)
+        },
+        {
+            descripcion: "visita",
+            momio: +(1 / pVisita).toFixed(2)
+        }
+    ];
+}
+
 function calcularMomios(ratingCasa, ratingVisita) {
 
     const diferencia = ratingCasa - ratingVisita;
@@ -163,11 +250,7 @@ function calcularMomios(ratingCasa, ratingVisita) {
             { descripcion: "6.5", momio: Math.abs(diferencia) - 7 }
         ],
 
-        resultado: [
-            { descripcion: "casa", momio: diferencia },
-            { descripcion: "empate", momio: 0 },
-            { descripcion: "visita", momio: -diferencia }
-        ],
+        resultado: calcularMomiosResultado(ratingCasa,ratingVisita),
 
         diferenciaCasa: [
             { descripcion: "1", momio: diferencia + 1 },
