@@ -82,7 +82,7 @@ const EQUIPOS = {
 
     inglaterra: {
         nombre: "Inglaterra",
-        rating: 90
+        rating: 97
     }
 };
 
@@ -109,7 +109,7 @@ function obtenerPartido(id) {
 
 function calcularLambdas(ratingCasa, ratingVisita) {
 
-    ratingCasa += 5;
+    ratingCasa += 3;
 
     const diferencia = Math.abs(ratingCasa - ratingVisita) / 100;
 
@@ -148,6 +148,91 @@ function factorial(n) {
         f *= i;
 
     return f;
+}
+
+function calcularMomiosGolesMasCasa(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+
+
+    for (let golesCasa = 1; golesCasa <= 10; golesCasa++) {
+
+	
+	p0 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 1.5)
+	p1 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 2.5)
+	p2 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 3.5)
+	p3 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 4.5)
+	p4 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 5.5)
+	p5 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 6.5)
+	p6 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 7.5)
+	p7 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 8.5)
+	p8 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa > 9.5)
+	p9 += poisson(golesCasa, lambdaCasa);
+}
+
+    return [
+        {
+            descripcion: "0.5",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "1.5",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "2.5",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "3.5",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "4.5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "5.5",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "6.5",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "7.5",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "8.5",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "9.5",
+            momio: +(1 / p9).toFixed(2)
+        }
+    ];
 }
 
 function calcularMomiosResultado(ratingCasa, ratingVisita) {
@@ -200,13 +285,7 @@ function calcularMomios(ratingCasa, ratingVisita) {
 
     return {
 
-        golesMasCasa: [
-            { descripcion: "0.5", momio: diferencia + 1 },
-            { descripcion: "1.5", momio: diferencia + 2 },
-            { descripcion: "2.5", momio: diferencia + 3 },
-            { descripcion: "3.5", momio: diferencia + 4 },
-            { descripcion: "4.5", momio: diferencia + 5 }
-        ],
+        golesMasCasa: calcularMomiosGolesMasCasa(ratingCasa,ratingVisita),
 
         golesMenosCasa: [
             { descripcion: "0.5", momio: diferencia - 1 },
