@@ -83,6 +83,15 @@ const EQUIPOS = {
     inglaterra: {
         nombre: "Inglaterra",
         rating: 97
+    },
+    espana: {
+        nombre: "España",
+        rating: 50
+    },
+
+    argentina: {
+        nombre: "Argentina",
+        rating: 25
     }
 };
 
@@ -90,6 +99,18 @@ const PARTIDOS = {
     franciainglaterra: {
         casa: "francia",
         visita: "inglaterra"
+    },
+    espanaargentina: {
+        casa: "espana",
+        visita: "argentina"
+    },
+    franciaespana: {
+        casa: "francia",
+        visita: "espana"
+    },
+    inglaterraargentina: {
+        casa: "inglaterra",
+        visita: "argentina"
     }
 };
 
