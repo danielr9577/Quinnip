@@ -113,13 +113,9 @@ function calcularLambdas(ratingCasa, ratingVisita) {
 
     const diferencia = Math.abs(ratingCasa - ratingVisita) / 100;
 
-    const lambdaFavorito =
-        1.35 + 9 * Math.pow(diferencia, 1.5);
+    const lambdaFavorito = 1.5 + 10 * diferencia;
 
-    const lambdaDebil = Math.max(
-        0.2,
-        1.35 - 1.15 * Math.pow(diferencia, 0.8)
-    );
+    const lambdaDebil = Math.max(0.2, 1.5 - 2.5 * diferencia);
 
     if (ratingCasa >= ratingVisita) {
         return {
