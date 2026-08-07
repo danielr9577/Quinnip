@@ -111,6 +111,14 @@ const PARTIDOS = {
     inglaterraargentina: {
         casa: "inglaterra",
         visita: "argentina"
+    },
+    franciaargentina: {
+        casa: "francia",
+        visita: "argentina"
+    },
+    inglaterraespana: {
+        casa: "inglaterra",
+        visita: "espana"
     }
 };
 
