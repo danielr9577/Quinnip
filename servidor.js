@@ -252,6 +252,91 @@ function calcularMomiosGolesMasCasa(ratingCasa, ratingVisita) {
     ];
 }
 
+function calcularMomiosGolesMenosCasa(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+
+
+    for (let golesCasa = 0; golesCasa <= 9; golesCasa++) {
+
+	
+	p9 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 8.5)
+	p8 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 7.5)
+	p7 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 6.5)
+	p6 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 5.5)
+	p5 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 4.5)
+	p4 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 3.5)
+	p3 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 2.5)
+	p2 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 1.5)
+	p1 += poisson(golesCasa, lambdaCasa);
+	if(golesCasa < 0.5)
+	p0 += poisson(golesCasa, lambdaCasa);
+}
+
+    return [
+        {
+            descripcion: "0.5",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "1.5",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "2.5",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "3.5",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "4.5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "5.5",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "6.5",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "7.5",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "8.5",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "9.5",
+            momio: +(1 / p9).toFixed(2)
+        }
+    ];
+}
+
 function calcularMomiosGolesMasVisita(ratingCasa, ratingVisita) {
 
     const { lambdaCasa, lambdaVisita } =
@@ -337,6 +422,417 @@ function calcularMomiosGolesMasVisita(ratingCasa, ratingVisita) {
     ];
 }
 
+function calcularMomiosGolesMenosVisita(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+
+
+    for (let golesVisita = 0; golesVisita <= 9; golesVisita++) {
+
+	
+	p9 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 8.5)
+	p8 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 7.5)
+	p7 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 6.5)
+	p6 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 5.5)
+	p5 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 4.5)
+	p4 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 3.5)
+	p3 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 2.5)
+	p2 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 1.5)
+	p1 += poisson(golesVisita, lambdaVisita);
+	if(golesVisita < 0.5)
+	p0 += poisson(golesVisita, lambdaVisita);
+}
+
+    return [
+        {
+            descripcion: "0.5",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "1.5",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "2.5",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "3.5",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "4.5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "5.5",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "6.5",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "7.5",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "8.5",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "9.5",
+            momio: +(1 / p9).toFixed(2)
+        }
+    ];
+}
+
+function calcularMomiosGolesMasTotales(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+    let p10 = 0;
+    let p11 = 0;
+    let p12 = 0;
+    let p13 = 0;
+    let p14 = 0;
+    let p15 = 0;
+    let p16 = 0;
+    let p17 = 0;
+    let p18 = 0;
+    let p19 = 0;
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob =
+                probCasa *
+                poisson(golesVisita, lambdaVisita);
+		
+            if ((golesCasa + golesVisita) > 0.5)
+	    	p0 += prob;
+            if ((golesCasa + golesVisita) > 1.5)
+                p1 += prob;
+	    if ((golesCasa + golesVisita) > 2.5)
+                p2 += prob;
+	    if ((golesCasa + golesVisita) > 3.5)
+	    	p3 += prob;
+            if ((golesCasa + golesVisita) > 4.5)
+                p4 += prob;
+	    if ((golesCasa + golesVisita) > 5.5)
+                p5 += prob;
+            if ((golesCasa + golesVisita) > 6.5)
+	    	p6 += prob;
+            if ((golesCasa + golesVisita) > 7.5)
+                p7 += prob;
+	    if ((golesCasa + golesVisita) > 8.5)
+                p8 += prob;
+	    if ((golesCasa + golesVisita) > 9.5)
+	    	p9 += prob;
+            if ((golesCasa + golesVisita) > 10.5)
+                p10 += prob;
+	    if ((golesCasa + golesVisita) > 11.5)
+                p11 += prob;
+            if ((golesCasa + golesVisita) > 12.5)
+	    	p12 += prob;
+            if ((golesCasa + golesVisita) > 13.5)
+                p13 += prob;
+	    if ((golesCasa + golesVisita) > 14.5)
+                p14 += prob;
+	    if ((golesCasa + golesVisita) > 15.5)
+	    	p15 += prob;
+            if ((golesCasa + golesVisita) > 16.5)
+                p16 += prob;
+	    if ((golesCasa + golesVisita) > 17.5)
+                p17 += prob;
+            if ((golesCasa + golesVisita) > 18.5)
+	    	p18 += prob;
+            if ((golesCasa + golesVisita) > 19.5)
+                p19 += prob;
+        }
+    }
+
+return [
+        {
+            descripcion: "0.5",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "1.5",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "2.5",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "3.5",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "4.5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "5.5",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "6.5",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "7.5",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "8.5",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "9.5",
+            momio: +(1 / p9).toFixed(2)
+        },
+        {
+            descripcion: "10.5",
+            momio: +(1 / p10).toFixed(2)
+        },
+        {
+            descripcion: "11.5",
+            momio: +(1 / p11).toFixed(2)
+        },
+        {
+            descripcion: "12.5",
+            momio: +(1 / p12).toFixed(2)
+        },
+        {
+            descripcion: "13.5",
+            momio: +(1 / p13).toFixed(2)
+        },
+        {
+            descripcion: "14.5",
+            momio: +(1 / p14).toFixed(2)
+        },
+        {
+            descripcion: "15.5",
+            momio: +(1 / p15).toFixed(2)
+        },         
+	{
+            descripcion: "16.5",
+            momio: +(1 / p16).toFixed(2)
+        },
+        {
+            descripcion: "17.5",
+            momio: +(1 / p17).toFixed(2)
+        },
+        {
+            descripcion: "18.5",
+            momio: +(1 / p18).toFixed(2)
+        },
+        {
+            descripcion: "19.5",
+            momio: +(1 / p19).toFixed(2)
+        }
+    ];
+}
+
+function calcularMomiosGolesMenosTotales(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+    let p10 = 0;
+    let p11 = 0;
+    let p12 = 0;
+    let p13 = 0;
+    let p14 = 0;
+    let p15 = 0;
+    let p16 = 0;
+    let p17 = 0;
+    let p18 = 0;
+    let p19 = 0;
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob =
+                probCasa *
+                poisson(golesVisita, lambdaVisita);
+	
+            if ((golesCasa + golesVisita) < 0.5)
+	    	p0 += prob;
+            if ((golesCasa + golesVisita) < 1.5)
+                p1 += prob;
+	    if ((golesCasa + golesVisita) < 2.5)
+                p2 += prob;
+	    if ((golesCasa + golesVisita) < 3.5)
+	    	p3 += prob;
+            if ((golesCasa + golesVisita) < 4.5)
+                p4 += prob;
+	    if ((golesCasa + golesVisita) < 5.5)
+                p5 += prob;
+            if ((golesCasa + golesVisita) < 6.5)
+	    	p6 += prob;
+            if ((golesCasa + golesVisita) < 7.5)
+                p7 += prob;
+	    if ((golesCasa + golesVisita) < 8.5)
+                p8 += prob;
+	    if ((golesCasa + golesVisita) < 9.5)
+	    	p9 += prob;
+            if ((golesCasa + golesVisita) < 10.5)
+                p10 += prob;
+	    if ((golesCasa + golesVisita) < 11.5)
+                p11 += prob;
+            if ((golesCasa + golesVisita) < 12.5)
+	    	p12 += prob;
+            if ((golesCasa + golesVisita) < 13.5)
+                p13 += prob;
+	    if ((golesCasa + golesVisita) < 14.5)
+                p14 += prob;
+	    if ((golesCasa + golesVisita) < 15.5)
+	    	p15 += prob;
+            if ((golesCasa + golesVisita) < 16.5)
+                p16 += prob;
+	    if ((golesCasa + golesVisita) < 17.5)
+                p17 += prob;
+            if ((golesCasa + golesVisita) < 18.5)
+	    	p18 += prob;
+            if ((golesCasa + golesVisita) < 19.5)
+                p19 += prob;
+        }
+    }
+
+return [
+        {
+            descripcion: "0.5",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "1.5",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "2.5",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "3.5",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "4.5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "5.5",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "6.5",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "7.5",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "8.5",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "9.5",
+            momio: +(1 / p9).toFixed(2)
+        },
+        {
+            descripcion: "10.5",
+            momio: +(1 / p10).toFixed(2)
+        },
+        {
+            descripcion: "11.5",
+            momio: +(1 / p11).toFixed(2)
+        },
+        {
+            descripcion: "12.5",
+            momio: +(1 / p12).toFixed(2)
+        },
+        {
+            descripcion: "13.5",
+            momio: +(1 / p13).toFixed(2)
+        },
+        {
+            descripcion: "14.5",
+            momio: +(1 / p14).toFixed(2)
+        },
+        {
+            descripcion: "15.5",
+            momio: +(1 / p15).toFixed(2)
+        },         
+	{
+            descripcion: "16.5",
+            momio: +(1 / p16).toFixed(2)
+        },
+        {
+            descripcion: "17.5",
+            momio: +(1 / p17).toFixed(2)
+        },
+        {
+            descripcion: "18.5",
+            momio: +(1 / p18).toFixed(2)
+        },
+        {
+            descripcion: "19.5",
+            momio: +(1 / p19).toFixed(2)
+        }
+    ];
+}
+
 function calcularMomiosResultado(ratingCasa, ratingVisita) {
 
     const { lambdaCasa, lambdaVisita } =
@@ -381,77 +877,241 @@ function calcularMomiosResultado(ratingCasa, ratingVisita) {
     ];
 }
 
-function calcularMomios(ratingCasa, ratingVisita) {
+function calcularMomiosDiferenciaCasa(ratingCasa, ratingVisita) {
 
-    const diferencia = ratingCasa - ratingVisita;
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob =
+                probCasa *
+                poisson(golesVisita, lambdaVisita);
+	
+            if ((golesCasa - golesVisita) == 1)
+	    	p0 += prob;
+	    if ((golesCasa - golesVisita) == 2)
+                p1 += prob;
+	    if ((golesCasa - golesVisita) == 3)
+	    	p2 += prob;
+            if ((golesCasa - golesVisita) == 4)
+                p3 += prob;
+	    if ((golesCasa - golesVisita) == 5)
+                p4 += prob;
+            if ((golesCasa - golesVisita) == 6)
+	    	p5 += prob;
+            if ((golesCasa - golesVisita) == 7)
+                p6 += prob;
+	    if ((golesCasa - golesVisita) == 8)
+                p7 += prob;
+	    if ((golesCasa - golesVisita) == 9)
+	    	p8 += prob;
+            if ((golesCasa - golesVisita) == 10)
+                p9 += prob;
+           }
+    }
+
+return [
+        {
+            descripcion: "1",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "2",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "3",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "4",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "6",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "7",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "8",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "9",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "10",
+            momio: +(1 / p9).toFixed(2)
+        }
+    ];
+}
+
+
+function calcularMomiosDiferenciaVisita(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+    let p0 = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let p7 = 0;
+    let p8 = 0;
+    let p9 = 0;
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob =
+                probCasa *
+                poisson(golesVisita, lambdaVisita);
+	
+            if ((golesCasa - golesVisita) == -1)
+	    	p0 += prob;
+	    if ((golesCasa - golesVisita) == -2)
+                p1 += prob;
+	    if ((golesCasa - golesVisita) == -3)
+	    	p2 += prob;
+            if ((golesCasa - golesVisita) == -4)
+                p3 += prob;
+	    if ((golesCasa - golesVisita) == -5)
+                p4 += prob;
+            if ((golesCasa - golesVisita) == -6)
+	    	p5 += prob;
+            if ((golesCasa - golesVisita) == -7)
+                p6 += prob;
+	    if ((golesCasa - golesVisita) == -8)
+                p7 += prob;
+	    if ((golesCasa - golesVisita) == -9)
+	    	p8 += prob;
+            if ((golesCasa - golesVisita) == -10)
+                p9 += prob;
+           }
+    }
+
+return [
+        {
+            descripcion: "1",
+            momio: +(1 / p0).toFixed(2)
+        },
+        {
+            descripcion: "2",
+            momio: +(1 / p1).toFixed(2)
+        },
+        {
+            descripcion: "3",
+            momio: +(1 / p2).toFixed(2)
+        },
+        {
+            descripcion: "4",
+            momio: +(1 / p3).toFixed(2)
+        },
+        {
+            descripcion: "5",
+            momio: +(1 / p4).toFixed(2)
+        },
+        {
+            descripcion: "6",
+            momio: +(1 / p5).toFixed(2)
+        },         
+	{
+            descripcion: "7",
+            momio: +(1 / p6).toFixed(2)
+        },
+        {
+            descripcion: "8",
+            momio: +(1 / p7).toFixed(2)
+        },
+        {
+            descripcion: "9",
+            momio: +(1 / p8).toFixed(2)
+        },
+        {
+            descripcion: "10",
+            momio: +(1 / p9).toFixed(2)
+        }
+    ];
+}
+
+
+function calcularMomiosMarcadorExacto(ratingCasa, ratingVisita) {
+
+    const { lambdaCasa, lambdaVisita } =
+        calcularLambdas(ratingCasa, ratingVisita);
+
+       const resultados = [];
+
+    for (let golesCasa = 0; golesCasa <= 10; golesCasa++) {
+
+        const probCasa = poisson(golesCasa, lambdaCasa);
+
+        for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
+
+            const prob = probCasa * poisson(golesVisita, lambdaVisita);
+
+	resultados.push({
+            descripcion: `${golesCasa}-${golesVisita}`,
+            momio: +(1 / prob).toFixed(2)
+                       });
+        }
+    }
+return resultados;
+}
+
+function calcularMomios(ratingCasa, ratingVisita) {
 
     return {
 
         golesMasCasa: calcularMomiosGolesMasCasa(ratingCasa,ratingVisita),
 
-        golesMenosCasa: [
-            { descripcion: "0.5", momio: diferencia - 1 },
-            { descripcion: "1.5", momio: diferencia - 2 },
-            { descripcion: "2.5", momio: diferencia - 3 },
-            { descripcion: "3.5", momio: diferencia - 4 },
-            { descripcion: "4.5", momio: diferencia - 5 }
-        ],
+        golesMenosCasa: calcularMomiosGolesMenosCasa(ratingCasa,ratingVisita),
 
         golesMasVisita: calcularMomiosGolesMasVisita(ratingCasa, ratingVisita),
 
-        golesMenosVisita: [
-            { descripcion: "0.5", momio: -diferencia - 1 },
-            { descripcion: "1.5", momio: -diferencia - 2 },
-            { descripcion: "2.5", momio: -diferencia - 3 },
-            { descripcion: "3.5", momio: -diferencia - 4 }
-        ],
+        golesMenosVisita: calcularMomiosGolesMenosVisita(ratingCasa,ratingVisita),
 
-        golesMasTotales: [
-            { descripcion: "0.5", momio: Math.abs(diferencia) + 1 },
-            { descripcion: "1.5", momio: Math.abs(diferencia) + 2 },
-            { descripcion: "2.5", momio: Math.abs(diferencia) + 3 },
-            { descripcion: "3.5", momio: Math.abs(diferencia) + 4 },
-            { descripcion: "4.5", momio: Math.abs(diferencia) + 5 },
-            { descripcion: "5.5", momio: Math.abs(diferencia) + 6 },
-            { descripcion: "6.5", momio: Math.abs(diferencia) + 7 }
-        ],
+        golesMasTotales: calcularMomiosGolesMasTotales(ratingCasa,ratingVisita),
 
-        golesMenosTotales: [
-            { descripcion: "0.5", momio: Math.abs(diferencia) - 1 },
-            { descripcion: "1.5", momio: Math.abs(diferencia) - 2 },
-            { descripcion: "2.5", momio: Math.abs(diferencia) - 3 },
-            { descripcion: "3.5", momio: Math.abs(diferencia) - 4 },
-            { descripcion: "4.5", momio: Math.abs(diferencia) - 5 },
-            { descripcion: "5.5", momio: Math.abs(diferencia) - 6 },
-            { descripcion: "6.5", momio: Math.abs(diferencia) - 7 }
-        ],
+        golesMenosTotales: calcularMomiosGolesMenosTotales(ratingCasa,ratingVisita),
 
         resultado: calcularMomiosResultado(ratingCasa,ratingVisita),
 
-        diferenciaCasa: [
-            { descripcion: "1", momio: diferencia + 1 },
-            { descripcion: "2", momio: diferencia + 2 },
-            { descripcion: "3", momio: diferencia + 3 },
-            { descripcion: "4", momio: diferencia + 4 },
-            { descripcion: "5", momio: diferencia + 5 }
-        ],
+        diferenciaCasa: calcularMomiosDiferenciaCasa(ratingCasa,ratingVisita),
 
-        diferenciaVisita: [
-            { descripcion: "1", momio: -diferencia + 1 },
-            { descripcion: "2", momio: -diferencia + 2 },
-            { descripcion: "3", momio: -diferencia + 3 },
-            { descripcion: "4", momio: -diferencia + 4 }
-        ],
+        diferenciaVisita: calcularMomiosDiferenciaVisita(ratingCasa,ratingVisita),
 
-        marcadorExacto: [
-            { descripcion: "1-0", momio: diferencia },
-            { descripcion: "2-0", momio: diferencia + 1 },
-            { descripcion: "2-1", momio: diferencia + 2 },
-            { descripcion: "1-1", momio: 0 },
-	    { descripcion: "0-0", momio: 0 },
-            { descripcion: "0-1", momio: -diferencia },
-            { descripcion: "0-2", momio: -diferencia + 1 }
-        ]
+        marcadorExacto: calcularMomiosMarcadorExacto(ratingCasa,ratingVisita),
     };
 }
 
