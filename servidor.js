@@ -75,50 +75,29 @@ CREATE TABLE IF NOT EXISTS puntosPartido (
 `);
 
 const EQUIPOS = {
-    francia: {
-        nombre: "Francia",
+    parissaintgermain: {
+        nombre: "Paris Saint Germain",
         rating: 100
     },
 
-    inglaterra: {
-        nombre: "Inglaterra",
-        rating: 97
+    fcbarcelona: {
+        nombre: "FC Barcelona",
+        rating: 92
     },
-    espana: {
-        nombre: "España",
-        rating: 50
-    },
-
-    argentina: {
-        nombre: "Argentina",
-        rating: 25
+    asroma: {
+        nombre: "AS Roma",
+        rating: 87
     }
 };
 
 const PARTIDOS = {
-    franciainglaterra: {
-        casa: "francia",
-        visita: "inglaterra"
+    parissaintgermainfcbarcelona: {
+        casa: "parissaintgermain",
+        visita: "fcbarcelona"
     },
-    espanaargentina: {
-        casa: "espana",
-        visita: "argentina"
-    },
-    franciaespana: {
-        casa: "francia",
-        visita: "espana"
-    },
-    inglaterraargentina: {
-        casa: "inglaterra",
-        visita: "argentina"
-    },
-    franciaargentina: {
-        casa: "francia",
-        visita: "argentina"
-    },
-    inglaterraespana: {
-        casa: "inglaterra",
-        visita: "espana"
+    parissaintgermainasroma: {
+        casa: "parissaintgermain",
+        visita: "asroma"
     }
 };
 
