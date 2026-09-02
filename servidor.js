@@ -1621,15 +1621,15 @@ function calcularMomiosResultado(ratingCasa, ratingVisita) {
     return [
         {
             descripcion: "casa",
-            momio: +(1 / pCasa).toFixed(2)
+            momio: +(1 / (pCasa-0.05)).toFixed(2)
         },
         {
             descripcion: "empate",
-            momio: +(1 / pEmpate).toFixed(2)
+            momio: +(1 / (pEmpate+0.1)).toFixed(2)
         },
         {
             descripcion: "visita",
-            momio: +(1 / pVisita).toFixed(2)
+            momio: +(1 / (pVisita-0.05)).toFixed(2)
         }
     ];
 }
@@ -1836,6 +1836,8 @@ function calcularMomiosMarcadorExacto(ratingCasa, ratingVisita) {
         for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
 
             const prob = probCasa * poisson(golesVisita, lambdaVisita);
+		if(golesCasa == golesVisita)
+		{prob = prob + 0.01;}
 
 	resultados.push({
             descripcion: `${golesCasa}-${golesVisita}`,
