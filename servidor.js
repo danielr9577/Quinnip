@@ -102,12 +102,12 @@ const EQUIPOS = {
 
     liverpoolfc: {
         nombre: "Liverpool FC",
-        rating: 93
+        rating: 92
     },
 
     manchestercity: {
         nombre: "Manchester City",
-        rating: 93
+        rating: 92
     },
 
     intermilan: {
@@ -887,7 +887,7 @@ function obtenerPartido(id) {
 
 function calcularLambdas(ratingCasa, ratingVisita) {
 
-    ratingCasa += 3;
+    ratingCasa += 5;
 
     const diferencia = Math.abs(ratingCasa - ratingVisita) / 100;
 
