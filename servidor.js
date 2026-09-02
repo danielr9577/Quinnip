@@ -84,6 +84,7 @@ const EQUIPOS = {
         nombre: "Bayern Munich",
         rating: 97
     },
+
     arsenal: {
         nombre: "Arsenal",
         rating: 96
@@ -101,6 +102,11 @@ const EQUIPOS = {
 
     liverpoolfc: {
         nombre: "Liverpool FC",
+        rating: 93
+    },
+
+    manchestercity: {
+        nombre: "Manchester City",
         rating: 93
     },
 
