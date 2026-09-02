@@ -1836,8 +1836,6 @@ function calcularMomiosMarcadorExacto(ratingCasa, ratingVisita) {
         for (let golesVisita = 0; golesVisita <= 10; golesVisita++) {
 
             const prob = probCasa * poisson(golesVisita, lambdaVisita);
-		if(golesCasa == golesVisita)
-		{prob = prob + 0.01;}
 
 	resultados.push({
             descripcion: `${golesCasa}-${golesVisita}`,
