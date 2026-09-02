@@ -87,162 +87,162 @@ const EQUIPOS = {
     arsenal: {
         nombre: "Arsenal",
         rating: 96
-    }
+    },
 
     realmadrid: {
         nombre: "Real Madrid",
         rating: 95
-    }
+    },
 
     fcbarcelona: {
         nombre: "FC Barcelona",
         rating: 95
-    }
+    },
 
     liverpoolfc: {
         nombre: "Liverpool FC",
         rating: 93
-    }
+    },
 
     intermilan: {
         nombre: "Inter Milán",
         rating: 90
-    }
+    },
 
     atleticodemadrid: {
         nombre: "Atlético de Madrid",
         rating: 88
-    }
+    },
 
     astonvilla: {
         nombre: "Aston Villa",
         rating: 84
-    }
+    },
 
     manchesterunited: {
         nombre: "Manchester United",
         rating: 82
-    }
+    },
 
     borussiadortmund: {
         nombre: "Borussia Dortmund",
         rating: 82
-    }
+    },
 
     sscnapoli: {
         nombre: "SSC Napoli",
         rating: 82
-    }
+    },
 
     rbleipzig: {
         nombre: "RB Leipzig",
         rating: 79
-    }
+    },
 
     asroma: {
         nombre: "AS Roma",
         rating: 79
-    }
+    },
 
     sportingcp: {
         nombre: "Sporting CP",
         rating: 78
-    }
+    },
 
     fcporto: {
         nombre: "FC Porto",
         rating: 77
-    }
+    },
 
     psveindhoven: {
         nombre: "PSV Eindhoven",
         rating: 77
-    }
+    },
 
     villarrealcf: {
         nombre: "Villarreal CF",
         rating: 77
-    }
+    },
 
     feyenoord: {
         nombre: "Feyenoord",
         rating: 76
-    }
+    },
 
     realbetisbalompie: {
         nombre: "Real Betis Balompié",
         rating: 76
-    }
+    },
 
     galatasaray: {
         nombre: "Galatasaray",
         rating: 76
-    }
+    },
 
     fenerbahce: {
         nombre: "Fenerbahce",
         rating: 76
-    }
+    },
 
     como1907: {
         nombre: "Como 1907",
         rating: 73
-    }
+    },
 
     losclille: {
         nombre: "LOSC Lille",
         rating: 72
-    }
+    },
 
     vfbstuttgart: {
         nombre: "VfB Stuttgart",
         rating: 71
-    }
+    },
 
     shakhtardonetsk: {
         nombre: "Shakhtar Donetsk",
         rating: 71
-    }
+    },
 
     rclens: {
         nombre: "RC Lens",
         rating: 71
-    }
+    },
 
     clubbrugge: {
         nombre: "Club Brugge",
         rating: 70
-    }
+    },
 
     bodoglimt: {
         nombre: "Bodo Glimt",
         rating: 70
-    }
+    },
 
     slaviapraha: {
         nombre: "Slavia Praha",
         rating: 66
-    }
+    },
 
     aekatenas: {
         nombre: "AEK Atenas",
         rating: 64
-    }
+    },
 
     lasklinz: {
         nombre: "LASK Linz",
         rating: 61
-    }
+    },
 
     vikingfk: {
         nombre: "Viking FK",
         rating: 59
-    }
+    },
 
     slovanbratislava: {
         nombre: "Slovan Bratislava",
         rating: 53
-    }
+    },
 
     sabahfk: {
         nombre: "Sabah FK",
