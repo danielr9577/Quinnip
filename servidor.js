@@ -1881,7 +1881,7 @@ for (const id in PARTIDOS) {
 
 
 const HORAS_LIMITE = {
-  "franciainglaterra": new Date("2026-08-18T20:50:00Z")
+  "clubbruggeastonvilla": new Date("2026-10-10T20:50:00Z")
 };
 
 
