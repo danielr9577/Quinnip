@@ -80,25 +80,789 @@ const EQUIPOS = {
         rating: 100
     },
 
+    bayernmunich: {
+        nombre: "Bayern Munich",
+        rating: 97
+    },
+    arsenal: {
+        nombre: "Arsenal",
+        rating: 96
+    }
+
+    realmadrid: {
+        nombre: "Real Madrid",
+        rating: 95
+    }
+
     fcbarcelona: {
         nombre: "FC Barcelona",
-        rating: 92
-    },
+        rating: 95
+    }
+
+    liverpoolfc: {
+        nombre: "Liverpool FC",
+        rating: 93
+    }
+
+    intermilan: {
+        nombre: "Inter Milán",
+        rating: 90
+    }
+
+    atleticodemadrid: {
+        nombre: "Atlético de Madrid",
+        rating: 88
+    }
+
+    astonvilla: {
+        nombre: "Aston Villa",
+        rating: 84
+    }
+
+    manchesterunited: {
+        nombre: "Manchester United",
+        rating: 82
+    }
+
+    borussiadortmund: {
+        nombre: "Borussia Dortmund",
+        rating: 82
+    }
+
+    sscnapoli: {
+        nombre: "SSC Napoli",
+        rating: 82
+    }
+
+    rbleipzig: {
+        nombre: "RB Leipzig",
+        rating: 79
+    }
+
     asroma: {
         nombre: "AS Roma",
-        rating: 87
+        rating: 79
     }
+
+    sportingcp: {
+        nombre: "Sporting CP",
+        rating: 78
+    }
+
+    fcporto: {
+        nombre: "FC Porto",
+        rating: 77
+    }
+
+    psveindhoven: {
+        nombre: "PSV Eindhoven",
+        rating: 77
+    }
+
+    villarrealcf: {
+        nombre: "Villarreal CF",
+        rating: 77
+    }
+
+    feyenoord: {
+        nombre: "Feyenoord",
+        rating: 76
+    }
+
+    realbetisbalompie: {
+        nombre: "Real Betis Balompié",
+        rating: 76
+    }
+
+    galatasaray: {
+        nombre: "Galatasaray",
+        rating: 76
+    }
+
+    fenerbahce: {
+        nombre: "Fenerbahce",
+        rating: 76
+    }
+
+    como1907: {
+        nombre: "Como 1907",
+        rating: 73
+    }
+
+    losclille: {
+        nombre: "LOSC Lille",
+        rating: 72
+    }
+
+    vfbstuttgart: {
+        nombre: "VfB Stuttgart",
+        rating: 71
+    }
+
+    shakhtardonetsk: {
+        nombre: "Shakhtar Donetsk",
+        rating: 71
+    }
+
+    rclens: {
+        nombre: "RC Lens",
+        rating: 71
+    }
+
+    clubbrugge: {
+        nombre: "Club Brugge",
+        rating: 70
+    }
+
+    bodoglimt: {
+        nombre: "Bodo Glimt",
+        rating: 70
+    }
+
+    slaviapraha: {
+        nombre: "Slavia Praha",
+        rating: 66
+    }
+
+    aekatenas: {
+        nombre: "AEK Atenas",
+        rating: 64
+    }
+
+    lasklinz: {
+        nombre: "LASK Linz",
+        rating: 61
+    }
+
+    vikingfk: {
+        nombre: "Viking FK",
+        rating: 59
+    }
+
+    slovanbratislava: {
+        nombre: "Slovan Bratislava",
+        rating: 53
+    }
+
+    sabahfk: {
+        nombre: "Sabah FK",
+        rating: 46
+    }
+
 };
 
 const PARTIDOS = {
-    parissaintgermainfcbarcelona: {
-        casa: "parissaintgermain",
-        visita: "fcbarcelona"
-    },
-    parissaintgermainasroma: {
-        casa: "parissaintgermain",
-        visita: "asroma"
-    }
+parissaintgermainfcbarcelona: {
+    casa: "parissaintgermain",
+    visita: "fcbarcelona"
+},
+parissaintgermainasroma: {
+    casa: "parissaintgermain",
+    visita: "asroma"
+},
+parissaintgermaingalatasaray: {
+    casa: "parissaintgermain",
+    visita: "galatasaray"
+},
+parissaintgermainslovanbratislava: {
+    casa: "parissaintgermain",
+    visita: "slovanbratislava"
+},
+
+bayernmunicharsenal: {
+    casa: "bayernmunich",
+    visita: "arsenal"
+},
+bayernmunichrealbetisbalompie: {
+    casa: "bayernmunich",
+    visita: "realbetisbalompie"
+},
+bayernmunichbodoglimt: {
+    casa: "bayernmunich",
+    visita: "bodoglimt"
+},
+bayernmunichslaviapraha: {
+    casa: "bayernmunich",
+    visita: "slaviapraha"
+},
+
+realmadridintermilan: {
+    casa: "realmadrid",
+    visita: "intermilan"
+},
+realmadridpsveindhoven: {
+    casa: "realmadrid",
+    visita: "psveindhoven"
+},
+realmadridrbleipzig: {
+    casa: "realmadrid",
+    visita: "rbleipzig"
+},
+realmadridlasklinz: {
+    casa: "realmadrid",
+    visita: "lasklinz"
+},
+
+liverpoolfcatleticodemadrid: {
+    casa: "liverpoolfc",
+    visita: "atleticodemadrid"
+},
+liverpoolfcportofc: {
+    casa: "liverpoolfc",
+    visita: "fcporto"
+},
+liverpoolfcvillarealcf: {
+    casa: "liverpoolfc",
+    visita: "villarrealcf"
+},
+liverpoolfcrclens: {
+    casa: "liverpoolfc",
+    visita: "rclens"
+},
+
+intermilanliverpoolfc: {
+    casa: "intermilan",
+    visita: "liverpoolfc"
+},
+intermilanclubbrugge: {
+    casa: "intermilan",
+    visita: "clubbrugge"
+},
+intermilanshakhtardonetsk: {
+    casa: "intermilan",
+    visita: "shakhtardonetsk"
+},
+intermilanvfbstuttgart: {
+    casa: "intermilan",
+    visita: "vfbstuttgart"
+},
+
+manchestercityparissaintgermain: {
+    casa: "manchestercity",
+    visita: "parissaintgermain"
+},
+manchestercitysportingcp: {
+    casa: "manchestercity",
+    visita: "sportingcp"
+},
+manchestercitysscnapoli: {
+    casa: "manchestercity",
+    visita: "sscnapoli"
+},
+manchestercityaekatenas: {
+    casa: "manchestercity",
+    visita: "aekatenas"
+},
+
+arsenalrealmadrid: {
+    casa: "arsenal",
+    visita: "realmadrid"
+},
+arsenalborussiadortmund: {
+    casa: "arsenal",
+    visita: "borussiadortmund"
+},
+arsenallosclille: {
+    casa: "arsenal",
+    visita: "losclille"
+},
+arsenalsabahfk: {
+    casa: "arsenal",
+    visita: "sabahfk"
+},
+
+fcbarcelonamanchestercity: {
+    casa: "fcbarcelona",
+    visita: "manchestercity"
+},
+fcbarcelonaastonvilla: {
+    casa: "fcbarcelona",
+    visita: "astonvilla"
+},
+fcbarcelonafeyenoord: {
+    casa: "fcbarcelona",
+    visita: "feyenoord"
+},
+fcbarcelonacomo1907: {
+    casa: "fcbarcelona",
+    visita: "como1907"
+},
+
+atleticodemadridbayernmunich: {
+    casa: "atleticodemadrid",
+    visita: "bayernmunich"
+},
+atleticodemadridmanchesterunited: {
+    casa: "atleticodemadrid",
+    visita: "manchesterunited"
+},
+atleticodemadridfenerbahce: {
+    casa: "atleticodemadrid",
+    visita: "fenerbahce"
+},
+atleticodemadridvikingfk: {
+    casa: "atleticodemadrid",
+    visita: "vikingfk"
+},
+
+borussiadortmundintermilan: {
+    casa: "borussiadortmund",
+    visita: "intermilan"
+},
+borussiadortmundrealbetisbalompie: {
+    casa: "borussiadortmund",
+    visita: "realbetisbalompie"
+},
+borussiadortmundvillarrealcf: {
+    casa: "borussiadortmund",
+    visita: "villarrealcf"
+},
+borussiadortmundaekatenas: {
+    casa: "borussiadortmund",
+    visita: "aekatenas"
+},
+
+asromarealmadrid: {
+    casa: "asroma",
+    visita: "realmadrid"
+},
+asromasportingcp: {
+    casa: "asroma",
+    visita: "sportingcp"
+},
+asromalosclille: {
+    casa: "asroma",
+    visita: "losclille"
+},
+asromaslovanbratislava: {
+    casa: "asroma",
+    visita: "slovanbratislava"
+},
+
+sportingcpfcbarcelona: {
+    casa: "sportingcp",
+    visita: "fcbarcelona"
+},
+sportingcpmanchesterunited: {
+    casa: "sportingcp",
+    visita: "manchesterunited"
+},
+sportingcpgalatasaray: {
+    casa: "sportingcp",
+    visita: "galatasaray"
+},
+sportingcplasklinz: {
+    casa: "sportingcp",
+    visita: "lasklinz"
+},
+
+astonvillaparissaintgermain: {
+    casa: "astonvilla",
+    visita: "parissaintgermain"
+},
+astonvillaborussiadortmund: {
+    casa: "astonvilla",
+    visita: "borussiadortmund"
+},
+astonvillafenerbahce: {
+    casa: "astonvilla",
+    visita: "fenerbahce"
+},
+astonvillavikingfk: {
+    casa: "astonvilla",
+    visita: "vikingfk"
+},
+
+fcportomanchestercity: {
+    casa: "fcporto",
+    visita: "manchestercity"
+},
+fcportopsveindhoven: {
+    casa: "fcporto",
+    visita: "psveindhoven"
+},
+fcportosscnapoli: {
+    casa: "fcporto",
+    visita: "sscnapoli"
+},
+fcportoslaviapraha: {
+    casa: "fcporto",
+    visita: "slaviapraha"
+},
+
+manchesterunitedbayernmunich: {
+    casa: "manchesterunited",
+    visita: "bayernmunich"
+},
+manchesterunitedasroma: {
+    casa: "manchesterunited",
+    visita: "asroma"
+},
+manchesterunitedrbleipzig: {
+    casa: "manchesterunited",
+    visita: "rbleipzig"
+},
+manchesterunitedsabahfk: {
+    casa: "manchesterunited",
+    visita: "sabahfk"
+},
+
+clubbruggeliverpoolfc: {
+    casa: "clubbrugge",
+    visita: "liverpoolfc"
+},
+clubbruggeastonvilla: {
+    casa: "clubbrugge",
+    visita: "astonvilla"
+},
+clubbruggebodoglimt: {
+    casa: "clubbrugge",
+    visita: "bodoglimt"
+},
+clubbruggerclens: {
+    casa: "clubbrugge",
+    visita: "rclens"
+},
+
+realbetisbalompiearsenal: {
+    casa: "realbetisbalompie",
+    visita: "arsenal"
+},
+realbetisbalompiefcporto: {
+    casa: "realbetisbalompie",
+    visita: "fcporto"
+},
+realbetisbalompiefeyenoord: {
+    casa: "realbetisbalompie",
+    visita: "feyenoord"
+},
+realbetisbalompiecomo1907: {
+    casa: "realbetisbalompie",
+    visita: "como1907"
+},
+
+psveindhovenatleticodemadrid: {
+    casa: "psveindhoven",
+    visita: "atleticodemadrid"
+},
+psveindhovenclubbrugge: {
+    casa: "psveindhoven",
+    visita: "clubbrugge"
+},
+psveindhovenshakhtardonetsk: {
+    casa: "psveindhoven",
+    visita: "shakhtardonetsk"
+},
+psveindhovenvfbstuttgart: {
+    casa: "psveindhoven",
+    visita: "vfbstuttgart"
+},
+
+feyenoordintermilan: {
+    casa: "feyenoord",
+    visita: "intermilan"
+},
+feyenoordfcporto: {
+    casa: "feyenoord",
+    visita: "fcporto"
+},
+feyenoordrbleipzig: {
+    casa: "feyenoord",
+    visita: "rbleipzig"
+},
+feyenoordcomo1907: {
+    casa: "feyenoord",
+    visita: "como1907"
+},
+
+losclillebayernmunich: {
+    casa: "losclille",
+    visita: "bayernmunich"
+},
+losclillerealbetisbalompie: {
+    casa: "losclille",
+    visita: "realbetisbalompie"
+},
+losclillegalatasaray: {
+    casa: "losclille",
+    visita: "galatasaray"
+},
+losclilleslovanbratislava: {
+    casa: "losclille",
+    visita: "slovanbratislava"
+},
+
+bodoglimtatleticodemadrid: {
+    casa: "bodoglimt",
+    visita: "atleticodemadrid"
+},
+bodoglimtborussiadortmund: {
+    casa: "bodoglimt",
+    visita: "borussiadortmund"
+},
+bodoglimtlosclille: {
+    casa: "bodoglimt",
+    visita: "losclille"
+},
+bodoglimtlasklinz: {
+    casa: "bodoglimt",
+    visita: "lasklinz"
+},
+
+sscnapoliarsenal: {
+    casa: "sscnapoli",
+    visita: "arsenal"
+},
+sscnapoliclubbrugge: {
+    casa: "sscnapoli",
+    visita: "clubbrugge"
+},
+sscnapolibodoglimt: {
+    casa: "sscnapoli",
+    visita: "bodoglimt"
+},
+sscnapolivikingfk: {
+    casa: "sscnapoli",
+    visita: "vikingfk"
+},
+
+rbleipzigmanchestercity: {
+    casa: "rbleipzig",
+    visita: "manchestercity"
+},
+rbleipzigpsveindhoven: {
+    casa: "rbleipzig",
+    visita: "psveindhoven"
+},
+rbleipzigshakhtardonetsk: {
+    casa: "rbleipzig",
+    visita: "shakhtardonetsk"
+},
+rbleipzigrclens: {
+    casa: "rbleipzig",
+    visita: "rclens"
+},
+
+villarrealcfparissaintgermain: {
+    casa: "villarrealcf",
+    visita: "parissaintgermain"
+},
+villarrealcfmanchesterunited: {
+    casa: "villarrealcf",
+    visita: "manchesterunited"
+},
+villarrealcfsscnapoli: {
+    casa: "villarrealcf",
+    visita: "sscnapoli"
+},
+villarrealcfsabahfk: {
+    casa: "villarrealcf",
+    visita: "sabahfk"
+},
+
+fenerbahceliverpoolfc: {
+    casa: "fenerbahce",
+    visita: "liverpoolfc"
+},
+fenerbahceasroma: {
+    casa: "fenerbahce",
+    visita: "asroma"
+},
+fenerbahcevillarrealcf: {
+    casa: "fenerbahce",
+    visita: "villarrealcf"
+},
+fenerbahceslaviapraha: {
+    casa: "fenerbahce",
+    visita: "slaviapraha"
+},
+
+shakhtardonetskrealmadrid: {
+    casa: "shakhtardonetsk",
+    visita: "realmadrid"
+},
+shakhtardonetsksportingcp: {
+    casa: "shakhtardonetsk",
+    visita: "sportingcp"
+},
+shakhtardonetskfenerbahce: {
+    casa: "shakhtardonetsk",
+    visita: "fenerbahce"
+},
+shakhtardonetskaekatenas: {
+    casa: "shakhtardonetsk",
+    visita: "aekatenas"
+},
+
+galatasarayfcbarcelona: {
+    casa: "galatasaray",
+    visita: "fcbarcelona"
+},
+galatasarayastonvilla: {
+    casa: "galatasaray",
+    visita: "astonvilla"
+},
+galatasarayfeyenoord: {
+    casa: "galatasaray",
+    visita: "feyenoord"
+},
+galatasarayvfbstuttgart: {
+    casa: "galatasaray",
+    visita: "vfbstuttgart"
+},
+
+slaviaprahaarsenal: {
+    casa: "slaviapraha",
+    visita: "arsenal"
+},
+slaviaprahaastonvilla: {
+    casa: "slaviapraha",
+    visita: "astonvilla"
+},
+slaviaprahavillarrealcf: {
+    casa: "slaviapraha",
+    visita: "villarrealcf"
+},
+slaviapraharclens: {
+    casa: "slaviapraha",
+    visita: "rclens"
+},
+
+slovanbratislavaintermilan: {
+    casa: "slovanbratislava",
+    visita: "intermilan"
+},
+slovanbratislavarealbetisbalompie: {
+    casa: "slovanbratislava",
+    visita: "realbetisbalompie"
+},
+slovanbratislavashakhtardonetsk: {
+    casa: "slovanbratislava",
+    visita: "shakhtardonetsk"
+},
+slovanbratislavavfbstuttgart: {
+    casa: "slovanbratislava",
+    visita: "vfbstuttgart"
+},
+
+vfbstuttgartatleticodemadrid: {
+    casa: "vfbstuttgart",
+    visita: "atleticodemadrid"
+},
+vfbstuttgartclubbrugge: {
+    casa: "vfbstuttgart",
+    visita: "clubbrugge"
+},
+vfbstuttgartlosclille: {
+    casa: "vfbstuttgart",
+    visita: "losclille"
+},
+vfbstuttgartvikingfk: {
+    casa: "vfbstuttgart",
+    visita: "vikingfk"
+},
+
+aekatenasrealmadrid: {
+    casa: "aekatenas",
+    visita: "realmadrid"
+},
+aekatenasasroma: {
+    casa: "aekatenas",
+    visita: "asroma"
+},
+aekatenasgalatasaray: {
+    casa: "aekatenas",
+    visita: "galatasaray"
+},
+aekatenaslasklinz: {
+    casa: "aekatenas",
+    visita: "lasklinz"
+},
+
+lasklinzliverpoolfc: {
+    casa: "lasklinz",
+    visita: "liverpoolfc"
+},
+lasklinzfcporto: {
+    casa: "lasklinz",
+    visita: "fcporto"
+},
+lasklinzfenerbahce: {
+    casa: "lasklinz",
+    visita: "fenerbahce"
+},
+lasklinzslovanbratislava: {
+    casa: "lasklinz",
+    visita: "slovanbratislava"
+},
+
+como1907parissaintgermain: {
+    casa: "como1907",
+    visita: "parissaintgermain"
+},
+como1907manchesterunited: {
+    casa: "como1907",
+    visita: "manchesterunited"
+},
+como1907rbleipzig: {
+    casa: "como1907",
+    visita: "rbleipzig"
+},
+como1907aekatenas: {
+    casa: "como1907",
+    visita: "aekatenas"
+},
+
+rclensmanchestercity: {
+    casa: "rclens",
+    visita: "manchestercity"
+},
+rclenssportingcp: {
+    casa: "rclens",
+    visita: "sportingcp"
+},
+rclensbodoglimt: {
+    casa: "rclens",
+    visita: "bodoglimt"
+},
+rclenscomo1907: {
+    casa: "rclens",
+    visita: "como1907"
+},
+
+vikingfkbayernmunich: {
+    casa: "vikingfk",
+    visita: "bayernmunich"
+},
+vikingfkpsveindhoven: {
+    casa: "vikingfk",
+    visita: "psveindhoven"
+},
+vikingfkfeyenoord: {
+    casa: "vikingfk",
+    visita: "feyenoord"
+},
+vikingfksabahfk: {
+    casa: "vikingfk",
+    visita: "sabahfk"
+},
+
+sabahfkfcbarcelona: {
+    casa: "sabahfk",
+    visita: "fcbarcelona"
+},
+sabahfkborussiadortmund: {
+    casa: "sabahfk",
+    visita: "borussiadortmund"
+},
+sabahfksscnapoli: {
+    casa: "sabahfk",
+    visita: "sscnapoli"
+},
+sabahfkslaviapraha: {
+    casa: "sabahfk",
+    visita: "slaviapraha"
+}
 };
 
 function obtenerPartido(id) {
