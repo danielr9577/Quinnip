@@ -1621,7 +1621,7 @@ function calcularMomiosResultado(ratingCasa, ratingVisita) {
     return [
         {
             descripcion: "casa",
-            momio: +(1 / (pCasa-0.05)).toFixed(2)
+            momio: +(1 / pCasa).toFixed(2)
         },
         {
             descripcion: "empate",
@@ -1629,7 +1629,7 @@ function calcularMomiosResultado(ratingCasa, ratingVisita) {
         },
         {
             descripcion: "visita",
-            momio: +(1 / (pVisita-0.05)).toFixed(2)
+            momio: +(1 / pVisita).toFixed(2)
         }
     ];
 }
