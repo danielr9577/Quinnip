@@ -1625,7 +1625,7 @@ function calcularMomiosResultado(ratingCasa, ratingVisita) {
         },
         {
             descripcion: "empate",
-            momio: +(1 / (pEmpate*1.6)).toFixed(2)
+            momio: +(1 / (pEmpate*2)).toFixed(2)
         },
         {
             descripcion: "visita",
@@ -1837,7 +1837,7 @@ function calcularMomiosMarcadorExacto(ratingCasa, ratingVisita) {
 
             let prob = probCasa * poisson(golesVisita, lambdaVisita);
 		if(golesCasa == golesVisita)
-		{prob = prob*1.06;}
+		{prob = prob*1.1;}
 
 	resultados.push({
             descripcion: `${golesCasa}-${golesVisita}`,
