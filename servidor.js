@@ -1888,7 +1888,7 @@ for (const id in PARTIDOS) {
 }
 
 async function limpiarBaseDeDatos() {
-  await pool.query(`
+  await db.query(`
     TRUNCATE TABLE
       marcadores,
       resultados
