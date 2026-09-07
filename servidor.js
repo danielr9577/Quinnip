@@ -1887,12 +1887,16 @@ for (const id in PARTIDOS) {
     );
 }
 
-await pool.query(`
-  TRUNCATE TABLE
-    marcadores,
-    resultados
-  RESTART IDENTITY CASCADE;
-`);
+async function limpiarBaseDeDatos() {
+  await pool.query(`
+    TRUNCATE TABLE
+      marcadores,
+      resultados
+    RESTART IDENTITY CASCADE;
+  `);
+}
+
+limpiarBaseDeDatos();
 
 const HORAS_LIMITE = {
   "clubbruggeastonvilla": new Date("2026-09-08T16:40:00Z"),
