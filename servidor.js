@@ -1890,8 +1890,10 @@ for (const id in PARTIDOS) {
 async function limpiarBaseDeDatos() {
   await db.query(`
     TRUNCATE TABLE
-      marcadores,
-      resultados
+    marcadores,
+    resultados,
+    usuariosLiga,
+    usuarios
     RESTART IDENTITY CASCADE;
   `);
 }
