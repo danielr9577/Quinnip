@@ -1887,9 +1887,20 @@ for (const id in PARTIDOS) {
     );
 }
 
+await pool.query(`
+  TRUNCATE TABLE
+    marcadores,
+    resultados
+  RESTART IDENTITY CASCADE;
+`);
 
 const HORAS_LIMITE = {
-  "clubbruggeastonvilla": new Date("2026-10-10T20:50:00Z")
+  "clubbruggeastonvilla": new Date("2026-09-08T16:40:00Z"),
+  "aekatenaslasklinz": new Date("2026-09-08T16:40:00Z"),
+  "realmadridintermilan": new Date("2026-09-08T18:55:00Z"),
+  "fcportomanchestercity": new Date("2026-09-08T18:55:00Z"),
+  "borussiadortmundvillarrealcf": new Date("2026-09-08T18:55:00Z"),
+  "losclillerealbetisbalompie": new Date("2026-09-08T18:55:00Z"),
 };
 
 
