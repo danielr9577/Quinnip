@@ -1893,8 +1893,8 @@ const HORAS_LIMITE = {
   "aekatenaslasklinz": new Date("2026-09-08T16:40:00Z"),
   "realmadridintermilan": new Date("2026-09-08T18:55:00Z"),
   "fcportomanchestercity": new Date("2026-09-08T18:55:00Z"),
-  "borussiadortmundvillarrealcf": new Date("2026-09-08T18:55:00Z"),
-  "losclillerealbetisbalompie": new Date("2026-09-08T18:55:00Z")
+  "borussiadortmundvillarrealcf": new Date("2026-09-09T18:55:00Z"),
+  "losclillerealbetisbalompie": new Date("2026-09-09T18:55:00Z")
 };
 
 
